@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import BabaStart from "./Components/BabaStart";
+import BabaCube from "./Components/BabaCube";
+import BabaValuator from "./Components/BabaValuator";
+import BabaInc from "./Components/BabaInc";
+import MentorBaba from "./Components/MentorBaba";
+import Entrepreneurs from "./Components/Entrepreneurs";
+import BabaNews from "./Components/BabaNews";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MentorBaba />
+      <Entrepreneurs />
+      <BabaNews />
+      <BabaStart />
+      <BabaCube />
+      <BabaValuator />
+      <BabaInc />
+    </>
   );
 }
 

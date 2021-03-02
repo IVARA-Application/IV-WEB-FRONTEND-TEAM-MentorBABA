@@ -1,0 +1,144 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1 {
+  font-family: "Ubuntu", sans-serif;
+}
+span {
+  color: #536dfe;
+}
+button {
+  background-color: #536dfe;
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 128, 0.68);
+  -moz-box-shadow: 0px 5px 15px 0px rgba(0, 0, 128, 0.68);
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 128, 0.68);
+}
+img {
+  z-index: 1;
+}
+.babaCube-right h1,
+.babaStart-left h1,
+.babaValuator-left h1,
+.logo {
+  color: #584efe;
+}
+.babaBtn {
+  background-color: #584efe;
+}
+
+.baba {
+  color: #536dfe;
+}
+
+.mentor-left,
+.mentor-right {
+  position: relative;
+}
+
+.mentor-left > span {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 16%;
+  left: -20%;
+  height: 8rem;
+  width: 8rem;
+  border: solid 0.1rem #2f2e41;
+  border-radius: 100%;
+}
+
+.main {
+  background-color: #e6e6e6;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 85%;
+  left: 130%;
+  height: 60rem;
+  width: 60rem;
+  border: solid 0.1rem #2f2e41;
+  border-radius: 100%;
+}
+
+.grad-circle {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 85%;
+  left: 150%;
+  height: 50rem;
+  width: 50rem;
+  border: none;
+  background: linear-gradient(to top, rgb(64, 164, 255), rgb(49, 25, 150));
+  border-radius: 100%;
+}
+
+.Entre-container h1 {
+  color: #536dfe;
+}
+
+.news-container {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.news-container h1 {
+  color: #575757;
+}
+
+.news-container h1 span {
+  color: #584efe;
+}
+.left,
+.right {
+  width: 50%;
+  height: 50rem;
+  position: absolute;
+  z-index: -1;
+}
+
+.left {
+  background-color: #f2f2f2;
+  float: left;
+  top: 0;
+  left: 0%;
+}
+
+.right {
+  background-color: #584efe;
+  top: 0%;
+  right: 0;
+}
+
+.card {
+  width: 22rem;
+  height: 26rem !important;
+  position: relative;
+}
+
+.visit {
+  margin-top: 2rem;
+  position: absolute;
+  bottom: -5%;
+  min-height: 2.75rem;
+}
+
+.visit img {
+  max-width: 10%;
+}
+
+.visit p {
+  color: #575757;
+  font-size: 1.25rem;
+  padding-right: 2rem;
+}

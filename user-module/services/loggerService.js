@@ -1,5 +1,7 @@
 const bunyan = require("bunyan");
 
-export const logger = bunyan.createLogger({
+const logger = bunyan.createLogger({
   name: "Mentor Baba User Module",
 });
+
+module.exports = logger;

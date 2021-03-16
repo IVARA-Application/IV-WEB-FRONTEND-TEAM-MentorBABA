@@ -1,7 +1,9 @@
 require("dotenv").config();
 
 const express = require("express");
+const { registerNewCustomUser } = require("./controller");
 const validator = require("./middlewares/validator");
+const { NewCustomUserSchema } = require("./schemas");
 
 const app = express();
 
@@ -14,7 +16,22 @@ app.get("/healthcheck", (req, res) => {
   res.json({ status: "ok", uptime: process.uptime() });
 });
 
-app.post("/register", validator, (req, res) => {});
+app.post(
+  "/register",
+  validator("body", NewCustomUserSchema),
+  async (req, res) => {
+    try {
+      const { name, email, password, occupation, phone } = req.body;
+      await registerNewCustomUser(name, email, password, occupation, phone);
+      res.json({
+        success: true,
+        message: "User has been registered successfully.",
+      });
+    } catch (error) {
+      res.status(error.code).json({ success: false, message: error.message });
+    }
+  }
+);
 
 // App export for Claudia
 module.exports = app;

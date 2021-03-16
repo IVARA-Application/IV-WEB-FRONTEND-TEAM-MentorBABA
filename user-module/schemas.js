@@ -7,3 +7,7 @@ const NewCustomUserSchema = new yup.ObjectSchema({
   occupation: yup.string().trim().min(1).required(),
   phone: yup.string().trim().min(1).required(),
 });
+
+module.exports = {
+  NewCustomUserSchema: NewCustomUserSchema,
+};

@@ -9,6 +9,11 @@ const lambda = new Lambda({
   }),
 });
 
+/**
+ * Sign a new JWT
+ * @param {*} username
+ * @returns Lambda Promise
+ */
 const signJwt = (username) => {
   return lambda
     .invoke({
@@ -21,6 +26,11 @@ const signJwt = (username) => {
     .promise();
 };
 
+/**
+ * Verify a JWT
+ * @param {*} token
+ * @returns Lambda Promise
+ */
 const verifyJwt = (token) => {
   return lambda
     .invoke({
@@ -31,4 +41,9 @@ const verifyJwt = (token) => {
       }),
     })
     .promise();
+};
+
+module.exports = {
+  signJwt: signJwt,
+  verifyJwt: verifyJwt,
 };

@@ -2,6 +2,10 @@ const { MongoClient } = require("mongodb");
 
 let db;
 
+/**
+ * Initialize a MonogDB Connection
+ * @returns {db}
+ */
 async function initializeClient() {
   const client = await MongoClient.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,

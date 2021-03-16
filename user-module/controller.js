@@ -2,6 +2,14 @@ const argon2 = require("argon2");
 const logger = require("./services/loggerService");
 const database = require("./services/databaseService");
 
+/**
+ * Register a new custom user
+ * @param {*} name The full name of the user
+ * @param {*} email The email address of the user
+ * @param {*} password The password of the user
+ * @param {*} occupation The occupation of the user
+ * @param {*} phone The mobile number of the user
+ */
 const registerNewCustomUser = async (
   name,
   email,

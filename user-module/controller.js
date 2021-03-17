@@ -58,7 +58,6 @@ const customUserLogin = async (email, password) => {
     const lambdaResponseObject = JSON.parse(lambdaResponse.Payload);
     if (lambdaResponseObject.errorMessage)
       throw lambdaResponseObject.errorMessage;
-    console.log(lambdaResponseObject);
     return lambdaResponseObject;
   } catch (error) {
     logger.warn(error);

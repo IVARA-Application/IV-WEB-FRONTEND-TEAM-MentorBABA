@@ -74,4 +74,5 @@ const customUserLogin = async (email, password) => {
 
 module.exports = {
   registerNewCustomUser: registerNewCustomUser,
+  customUserLogin: customUserLogin,
 };

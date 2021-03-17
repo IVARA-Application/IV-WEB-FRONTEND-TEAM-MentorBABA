@@ -8,6 +8,12 @@ const NewCustomUserSchema = new yup.ObjectSchema({
   phone: yup.string().trim().min(1).required(),
 });
 
+const UserLoginSchema = new yup.ObjectSchema({
+  email: yup.string().email().trim().required(),
+  password: yup.string().trim().required(),
+});
+
 module.exports = {
   NewCustomUserSchema: NewCustomUserSchema,
+  UserLoginSchema: UserLoginSchema,
 };

@@ -1,9 +1,9 @@
 require("dotenv").config();
 
 const express = require("express");
-const { registerNewCustomUser } = require("./controller");
+const { registerNewCustomUser, customUserLogin } = require("./controller");
 const validator = require("./middlewares/validator");
-const { NewCustomUserSchema } = require("./schemas");
+const { NewCustomUserSchema, UserLoginSchema } = require("./schemas");
 
 const app = express();
 
@@ -32,6 +32,18 @@ app.post(
     }
   }
 );
+
+app.post("/login", validator("body", UserLoginSchema), async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    res.json({
+      success: true,
+      token: await customUserLogin(email, password),
+    });
+  } catch (error) {
+    res.status(error.code).json({ success: false, message: error.message });
+  }
+});
 
 // App export for Claudia
 module.exports = app;

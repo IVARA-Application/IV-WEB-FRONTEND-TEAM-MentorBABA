@@ -14,7 +14,7 @@ const lambda = new Lambda({
  * @param {*} username
  * @returns Lambda Promise
  */
-const signJwt = (username) => {
+const signUserJwt = (username) => {
   return lambda
     .invoke({
       FunctionName: "jwt-function",
@@ -31,7 +31,7 @@ const signJwt = (username) => {
  * @param {*} token
  * @returns Lambda Promise
  */
-const verifyJwt = (token) => {
+const verifyUserJwt = (token) => {
   return lambda
     .invoke({
       FunctionName: "jwt-function",
@@ -44,6 +44,6 @@ const verifyJwt = (token) => {
 };
 
 module.exports = {
-  signJwt: signJwt,
-  verifyJwt: verifyJwt,
+  signUserJwt: signUserJwt,
+  verifyUserJwt: verifyUserJwt,
 };

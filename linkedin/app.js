@@ -23,7 +23,8 @@ app.get('/redirect', async (req, res) => {
             const fullName = await fetchDetails(accessToken)
             if (fullName !== -1)
                 res.send(fullName)
-        }
+            res.send('No email associated')
+        } res.send('Invalid token')
     } catch (e) {
         console.log(e)
         res.send('err');

@@ -21,7 +21,7 @@ import CreateAccount from "./Components/CreateAccount";
 import StartupNews from "./Components/StartupNews";
 import BabaBlogs from "./Components/BabaBlogs";
 import EntrepreneurNews from "./Components/EntrepreneurNews";
-import BabaNewsPage from "./Components/BabaNewsPage";
+import BabaStartPage from "./Components/BabaStartPage";
 import BabaCubePage from "./Components/BabaCubePage";
 import BabaValuatorPage from "./Components/BabaValuatorPage";
 import BabaIncPage from "./Components/BabaIncPage";
@@ -50,7 +50,7 @@ function App() {
             <EntrepreneurNews />
           </Route>
           <Route exact path="/BabaStart">
-            <BabaNewsPage />
+            <BabaStartPage />
           </Route>
           <Route exact path="/BabaCube">
             <BabaCubePage />

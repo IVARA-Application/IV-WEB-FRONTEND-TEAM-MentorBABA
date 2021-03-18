@@ -64,13 +64,13 @@ img {
   width: 2.75rem;
 }
 
-.mentor-left > span {
+.left-circle {
   position: absolute;
   transform: translate(-50%, -50%);
-  top: 16%;
-  left: -20%;
-  height: 8rem;
-  width: 8rem;
+  top: 12%;
+  left: -25%;
+  height: 10rem;
+  width: 10rem;
   border: solid 0.1rem #2f2e41;
   border-radius: 100%;
 }
@@ -84,7 +84,7 @@ img {
   position: absolute;
   transform: translate(-50%, -50%);
   top: 85%;
-  left: 130%;
+  left: 110%;
   height: 60rem;
   width: 60rem;
   border: solid 0.1rem #2f2e41;
@@ -94,10 +94,10 @@ img {
 .grad-circle {
   position: absolute;
   transform: translate(-50%, -50%);
-  top: 85%;
-  left: 150%;
-  height: 50rem;
-  width: 50rem;
+  top: 95%;
+  left: 110%;
+  height: 55rem;
+  width: 55rem;
   border: none;
   background: linear-gradient(to top, rgb(64, 164, 255), rgb(49, 25, 150));
   border-radius: 100%;

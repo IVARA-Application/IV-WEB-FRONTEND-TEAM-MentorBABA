@@ -6,19 +6,19 @@ import kyb4 from "../../img/kyb4.png";
 
 function KnowYourBaba() {
   return (
-    <div className="kyb-container mt-16">
+    <div className="kyb-container lg:mt-16">
       <div>
-        <h1 className="text-center text-5xl mb-16">
+        <h1 className="text-center text-3xl  lg:text-5xl my-4 lg:mb-16">
           <span>Know Your</span> Baba!
         </h1>
       </div>
-      <div className="flex">
-        <div className="left-kyb kyb w-6/12 flex justify-center items-center">
-          <span className="rectangle"></span>
+      <div className="flex flex-col lg:flex-row items-center ">
+        <div className="left-kyb kyb object-contain flex justify-center items-center flex-1">
+          <span className="hidden lg:block rectangle"></span>
           <img src={kyb} alt="" />
         </div>
-        <div className="right-kyb w-6/12 pr-40">
-          <p className="text-2xl py-8">
+        <div className="right-kyb flex-1 xl:pr-40">
+          <p className=" md:text-2xl lg:py-8 px-8">
             MentorBaba was ideated at IIT Gandhinagar in 2019 when Kamalesh
             Dwivedi and Krishna Kunapuli of 3Lines Venture Capital, Denver, USA
             were conducting a HyperAccelerator program for Startups. The beta
@@ -31,11 +31,11 @@ function KnowYourBaba() {
         </div>
       </div>
       <div className="meet-the-team">
-        <h1 className="text-center text-5xl py-12">
+        <h1 className="text-center text-3xl lg:text-5xl py-6 lg:py-12">
           <span>Meet</span> The Team
         </h1>
-        <span className="line"></span>
-        <div className="flex gap-6 items-center justify-center py-8">
+        <span className="hidden xl:block line"></span>
+        <div className="flex md:flex-row flex-wrap gap-6 items-center justify-center lg:py-8">
           <img src={kyb1} alt="" />
           <img src={kyb1} alt="" />
           <img src={kyb3} alt="" />

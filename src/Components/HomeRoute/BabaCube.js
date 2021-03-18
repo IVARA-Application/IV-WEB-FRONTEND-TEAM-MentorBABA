@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 
 function BabaStart() {
   return (
-    <div className="container flex flex-row ml-20">
-      <div className="babaCube-left flex-1 flex justify-center mt-48 mb-48">
-        <img className="ml-40 w-full" src={img} alt="" />
+    <div className="flex flex-col lg:flex-row lg:py-12">
+      <div className="babaCube-left flex flex-1 flex-col justify-center items-center">
+        <img className="w-3/4 mt-12 lg:my-20" src={img} alt="" />
       </div>
-      <div className="babaCube-right flex flex-col items-center flex-1">
-        <h1 className="text-8xl mt-48">BabaCube</h1>
-        <p className="text-5xl my-8 text-gray-600">
+      <div className="babaCube-right flex flex-col items-center justify-center flex-1">
+        <h1 className="text-4xl md:text-6xl xl:text-8xl">BabaCube</h1>
+        <p className="text-xl md:text-2xl xl:text-5xl text-left my-4 lg:my-8 text-gray-600">
           APPLY TO TOP INCUBATORS <br /> AND ACCELERATORS NOW!
         </p>
-        <p className="text-2xl mx-28 text-black">
-          Learn about Incubators and Accelerators in our Weekly Blogs and get
-          connected with them!
+        <p className="text-md md:text-xl text-black text-center my-2 lg:my-4 lg:mb-12">
+          Learn about Incubators and Accelerators in our <br /> Weekly Blogs and
+          get connected with them!
         </p>
         <Link to="/BabaCube">
-          <button className="babaBtn text-base text-white py-2 px-14 rounded-3xl mt-16">
+          <button className="babaBtn text-base text-white py-2 px-14 rounded-3xl">
             Explore Now!
           </button>
         </Link>

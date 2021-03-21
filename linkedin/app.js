@@ -1,4 +1,5 @@
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production')
+    require('dotenv').config();
 
 const express = require('express');
 const app = express();
@@ -20,14 +21,17 @@ app.get('/redirect', async (req, res) => {
     try {
         let accessToken = await fetchAccessToken(code)
         if (accessToken !== -1) {
-            const fullName = await fetchDetails(accessToken)
-            if (fullName !== -1)
-                res.send(fullName)
-            res.send('No email associated')
-        } res.send('Invalid token')
+            const email = await fetchDetails(accessToken)
+            if (email !== -1) {
+                //save in db
+                return res.json(email)
+            }
+            return res.status(403).json('No email associated')
+        }
+        res.status(401).json('Invalid token')
     } catch (e) {
         console.log(e)
-        res.send('err');
+        res.status(400).json('err');
     }
 })
 
@@ -45,6 +49,7 @@ async function fetchAccessToken(code) {
         const resp1 = await axios.post(`https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${code}&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fredirect&client_id=${process.env.CLIENT_ID}&client_secret=${process.env.CLIENT_SECRET}`)
         return resp1.data.access_token
     } catch (e) {
+        console.log(e)
         return -1
     }
 }
@@ -53,22 +58,21 @@ async function fetchDetails(accessToken) {
 
     try {
         //for fullName
-        const resp2 = await axios.get('https://api.linkedin.com/v2/me', {
-            //for email    
-            // const resp2 = await axios.get('https://api.linkedin.com/v2/clientAwareMemberHandles?q=members&projection=(elements*(primary,type,handle~))', {
-            //use accessToken to query primaryContact
-
+        // const resp2 = await axios.get('https://api.linkedin.com/v2/me', {
+        //for email    
+        const resp2 = await axios.get('https://api.linkedin.com/v2/clientAwareMemberHandles?q=members&projection=(elements*(primary,type,handle~))', {
             headers: {
                 Authorization: `Bearer ${accessToken}`
             }
         })
 
         //will fetch email if exists
-        // console.log(resp2.data.elements[0]['handle~'].emailAddress)
-        const { localizedFirstName, localizedLastName } = resp2.data
-        return localizedFirstName + localizedLastName
+        return resp2.data.elements[0]['handle~'].emailAddress
+        // const { localizedFirstName, localizedLastName } = resp2.data
+        // return localizedFirstName + localizedLastName
 
     } catch (e) {
+        console.log(e)
         return -1
     }
 }

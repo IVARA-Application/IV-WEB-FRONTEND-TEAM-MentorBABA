@@ -71,7 +71,26 @@ const customUserLogin = async (email, password) => {
   }
 };
 
+const fetchLinkedinAccessToken = async (code) => {
+  try {
+    const response = await axios.post(
+      `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${code}&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fredirect&client_id=${process.env.LINKEDIN_CLIENT_ID}&client_secret=${process.env.LINKEDIN_CLIENT_SECRET}`
+    );
+    return response.data.access_token;
+  } catch (error) {
+    logger.warn(error);
+    if (!error.isCustom)
+      throw {
+        code: 500,
+        message:
+          "There was some issue at the server end. We are working to fix it as soon as possible.",
+      };
+    throw { code: error.code, message: error.message };
+  }
+};
+
 module.exports = {
   registerNewCustomUser: registerNewCustomUser,
   customUserLogin: customUserLogin,
+  fetchLinkedinAccessToken: fetchLinkedinAccessToken,
 };

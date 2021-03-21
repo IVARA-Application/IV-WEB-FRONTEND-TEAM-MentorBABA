@@ -15,6 +15,24 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/healthcheck", (req, res) => {
   res.json({ status: "ok", uptime: process.uptime() });
 });
+app.get("/login/linkedin", (req, res) => {
+  res.redirect(
+    `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.LINKEDIN_CLIENT_ID}&redirect_uri=http%3A%2F%2Flocalhost%3A4000%2Fredirect%2Flinkedin&state=987654321&scope=r_liteprofile%20r_emailaddress`
+  );
+});
+app.get("/redirect/linkedin", (req, res) => {
+  const { code } = req.query;
+  if (code === undefined) {
+    return res
+      .status(403)
+      .json({
+        status: false,
+        message: "We could not log you in with LinkedIn.",
+      });
+  }
+  console.log(code);
+  res.end();
+});
 
 app.post(
   "/register",

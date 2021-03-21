@@ -4,6 +4,19 @@ import google from "../../img/google.png";
 import linkedin from "../../img/linkedin.png";
 import { Link } from "react-router-dom";
 
+async function handleLoginSubmission(event) {
+  event.preventDefault();
+  const formData = new FormData(document.getElementById("login-form"));
+  const response = await fetch(
+    "https://6t9w8vnmb0.execute-api.ap-south-1.amazonaws.com/latest/login",
+    {
+      method: "POST",
+      body: formData,
+    }
+  );
+  console.log(response);
+}
+
 function SignIn() {
   return (
     <div className="flex flex-wrap signin-container">
@@ -17,15 +30,28 @@ function SignIn() {
           <img className="object-contain" src={linkedin} alt="" />
         </div>
         <p className="py-4 lg:py-10 text-xl">or use your email account:</p>
-        <form className="lg:py-2 px-8 lg:px-0" action="">
-          <input className="rounded" type="text" placeholder="Email" />
+        <form className="lg:py-2 px-8 lg:px-0" id="login-form">
+          <input
+            className="rounded"
+            type="text"
+            placeholder="Email"
+            name="email"
+          />
           <br />
-          <input className="rounded" type="password" placeholder="Password" />
+          <input
+            className="rounded"
+            type="password"
+            placeholder="Password"
+            name="password"
+          />
         </form>
         <p className="py-10 text-lg lg:text-2xl underline leading-3">
           Forget your password?
         </p>
-        <button className="rounded-full py-2 px-20 mb-4 lg:mb-0 text-2xl">
+        <button
+          className="rounded-full py-2 px-20 mb-4 lg:mb-0 text-2xl"
+          onClick={handleLoginSubmission}
+        >
           Sign In
         </button>
       </div>

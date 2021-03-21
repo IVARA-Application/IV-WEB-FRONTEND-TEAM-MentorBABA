@@ -34,6 +34,11 @@ router.post('/search', async (req, res) => {
     }
 })
 
+router.get('/mostviewed', async (req, res) => {
+    const blogs = await Blog.find().sort({ views: -1 })
+    res.json(blogs)
+})
+
 //displays indivual blog and tracks views
 
 router.get('/:id', async (req, res) => {

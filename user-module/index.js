@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
+const cors = require("cors");
 const { registerNewCustomUser, customUserLogin } = require("./controller");
 const validator = require("./middlewares/validator");
 const { NewCustomUserSchema, UserLoginSchema } = require("./schemas");
@@ -8,6 +9,7 @@ const { NewCustomUserSchema, UserLoginSchema } = require("./schemas");
 const app = express();
 
 // Middlewares to parse request body
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -23,14 +25,22 @@ app.get("/login/linkedin", (req, res) => {
 app.get("/redirect/linkedin", (req, res) => {
   const { code } = req.query;
   if (code === undefined) {
-    return res
-      .status(403)
-      .json({
-        status: false,
-        message: "We could not log you in with LinkedIn.",
-      });
+    res.set({
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
+      "Access-Control-Allow-Headers": "*",
+    });
+    return res.status(403).json({
+      status: false,
+      message: "We could not log you in with LinkedIn.",
+    });
   }
   console.log(code);
+  res.set({
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Headers": "*",
+  });
   res.end();
 });
 
@@ -41,11 +51,21 @@ app.post(
     try {
       const { name, email, password, occupation, phone } = req.body;
       await registerNewCustomUser(name, email, password, occupation, phone);
+      res.set({
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers": "*",
+      });
       res.json({
         success: true,
         message: "User has been registered successfully.",
       });
     } catch (error) {
+      res.set({
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers": "*",
+      });
       res.status(error.code).json({ success: false, message: error.message });
     }
   }
@@ -54,11 +74,21 @@ app.post(
 app.post("/login", validator("body", UserLoginSchema), async (req, res) => {
   try {
     const { email, password } = req.body;
+    res.set({
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
+      "Access-Control-Allow-Headers": "*",
+    });
     res.json({
       success: true,
       token: await customUserLogin(email, password),
     });
   } catch (error) {
+    res.set({
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
+      "Access-Control-Allow-Headers": "*",
+    });
     res.status(error.code).json({ success: false, message: error.message });
   }
 });

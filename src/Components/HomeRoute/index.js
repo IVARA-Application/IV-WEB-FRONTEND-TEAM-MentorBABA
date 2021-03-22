@@ -11,10 +11,12 @@ import MentorBaba from "./MentorBaba";
 import Entrepreneurs from "./Entrepreneurs";
 import BabaNews from "./BabaNews";
 import Footer from "./Footer";
+import NavBar from "./NavBar";
 
 function HomeComp() {
   return (
     <>
+      <NavBar />
       <MentorBaba />
       <Entrepreneurs />
       <KnowYourBaba />

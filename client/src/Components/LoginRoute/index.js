@@ -1,10 +1,10 @@
 import React from "react";
-import Login from "./SignIn";
+import SignIn from "./SignIn";
 
 function LoginComp() {
   return (
     <>
-      <Login />
+      <SignIn />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import fb from "../../img/facebook.png";
 import google from "../../img/google.png";
 import linkedin from "../../img/linkedin.png";
@@ -6,15 +7,30 @@ import { Link } from "react-router-dom";
 
 async function handleLoginSubmission(event) {
   event.preventDefault();
-  const formData = new FormData(document.getElementById("login-form"));
-  const response = await fetch(
-    "https://6t9w8vnmb0.execute-api.ap-south-1.amazonaws.com/latest/login",
-    {
-      method: "POST",
-      body: formData,
-    }
-  );
-  console.log(response);
+  console.log("Sending...");
+  try {
+    const response = await axios.post(
+      "https://vkrx5omg34.execute-api.ap-south-1.amazonaws.com/latest/login",
+      {
+        email: document.getElementById("email-input").value,
+        password: document.getElementById("password-input").value,
+      },
+      {
+        validateStatus: function (status) {
+          return status >= 200 && status < 500;
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (!response.data.success) throw Error(response.data.message);
+    window.localStorage.setItem("token", response.data.token);
+    alert("You are logged in. Welcome to MentorBaba!");
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
+  }
 }
 
 function SignIn() {
@@ -36,6 +52,7 @@ function SignIn() {
             type="text"
             placeholder="Email"
             name="email"
+            id="email-input"
           />
           <br />
           <input
@@ -43,6 +60,7 @@ function SignIn() {
             type="password"
             placeholder="Password"
             name="password"
+            id="password-input"
           />
         </form>
         <p className="py-10 text-lg lg:text-2xl underline leading-3">

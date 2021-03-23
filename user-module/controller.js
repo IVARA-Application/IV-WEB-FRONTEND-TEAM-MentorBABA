@@ -169,10 +169,56 @@ const generateGoogleLoginUrl = () => {
   });
 };
 
+/**
+ * Exchage Google Access Token for a JWT
+ * @param {*} code
+ * @returns JWT to be used for user identification
+ */
+const fetchGoogleProfileJwt = async (code) => {
+  try {
+    const { tokens } = await oauth2Client.getToken(code);
+    oauth2Client.setCredentials(tokens);
+    let oauth2 = google.oauth2({
+      auth: oauth2Client,
+      version: "v2",
+    });
+    const response = await oauth2.userinfo.get();
+    const db = await database();
+    await db.collection("users").updateOne(
+      { id: response.data.id },
+      {
+        $set: {
+          id: response.data.id,
+          name: `${response.data.given_name} ${response.data.family_name}`,
+          type: "google",
+        },
+      },
+      {
+        upsert: true,
+      }
+    );
+    const lambdaResponse = await signUserJwt(response.data.id);
+    const lambdaResponseObject = JSON.parse(lambdaResponse.Payload);
+    if (lambdaResponseObject.errorMessage)
+      throw lambdaResponseObject.errorMessage;
+    return lambdaResponseObject;
+  } catch (error) {
+    logger.warn(error);
+    if (!error.isCustom)
+      throw {
+        code: 500,
+        message:
+          "There was some issue at the server end. We are working to fix it as soon as possible.",
+      };
+    throw { code: error.code, message: error.message };
+  }
+};
+
 module.exports = {
   registerNewCustomUser: registerNewCustomUser,
   customUserLogin: customUserLogin,
   fetchLinkedinAccessToken: fetchLinkedinAccessToken,
   fetchLinkedinProfileJwt: fetchLinkedinProfileJwt,
   generateGoogleLoginUrl: generateGoogleLoginUrl,
+  fetchGoogleProfileJwt: fetchGoogleProfileJwt,
 };

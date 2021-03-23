@@ -7,6 +7,7 @@ const {
   customUserLogin,
   fetchLinkedinAccessToken,
   fetchLinkedinProfileJwt,
+  generateGoogleLoginUrl,
 } = require("./controller");
 const validator = require("./middlewares/validator");
 const { NewCustomUserSchema, UserLoginSchema } = require("./schemas");
@@ -18,15 +19,20 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Defining routes to be used
+/**
+ * Defining the routes
+ */
+// Healthcheck
 app.get("/healthcheck", (req, res) => {
   res.json({ status: "ok", uptime: process.uptime() });
 });
+// Get login URL for LinkedIn
 app.get("/login/linkedin", (req, res) => {
   res.redirect(
     `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.LINKEDIN_CLIENT_ID}&redirect_uri=${process.env.LINKEDIN_REDIRECT_URI}&scope=r_emailaddress%20r_liteprofile`
   );
 });
+// Exchange Linkedin login token for JWT
 app.get("/redirect/linkedin", async (req, res) => {
   try {
     const { code } = req.query;
@@ -61,7 +67,12 @@ app.get("/redirect/linkedin", async (req, res) => {
     res.status(error.code).json({ success: false, message: error.message });
   }
 });
+// Get login URL for Google
+app.get("/login/google", async (re, res) => {
+  res.redirect(generateGoogleLoginUrl());
+});
 
+// Register new custom user
 app.post(
   "/register",
   validator("body", NewCustomUserSchema),
@@ -88,7 +99,7 @@ app.post(
     }
   }
 );
-
+// Login for custom user
 app.post("/login", validator("body", UserLoginSchema), async (req, res) => {
   try {
     const { email, password } = req.body;

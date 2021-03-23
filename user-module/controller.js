@@ -1,8 +1,14 @@
 const argon2 = require("argon2");
 const axios = require("axios");
+const { google } = require("googleapis");
 const logger = require("./services/loggerService");
 const database = require("./services/databaseService");
 const { signUserJwt } = require("./services/jwtService");
+const oauth2Client = new google.auth.OAuth2(
+  process.env.GOOGLE_CLIENT_ID,
+  process.env.GOOGLE_CLIENT_SECRET,
+  process.env.GOOGLE_REDIRECT_URL
+);
 
 /**
  * Register a new custom user
@@ -153,9 +159,20 @@ const fetchLinkedinProfileJwt = async (code) => {
   }
 };
 
+/**
+ * Generate a unique Google login URL for the user
+ */
+const generateGoogleLoginUrl = () => {
+  return oauth2Client.generateAuthUrl({
+    access_type: "offline",
+    scope: ["profile", "email"],
+  });
+};
+
 module.exports = {
   registerNewCustomUser: registerNewCustomUser,
   customUserLogin: customUserLogin,
   fetchLinkedinAccessToken: fetchLinkedinAccessToken,
   fetchLinkedinProfileJwt: fetchLinkedinProfileJwt,
+  generateGoogleLoginUrl: generateGoogleLoginUrl,
 };

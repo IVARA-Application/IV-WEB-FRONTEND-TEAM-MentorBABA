@@ -2,7 +2,12 @@ require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
-const { registerNewCustomUser, customUserLogin } = require("./controller");
+const {
+  registerNewCustomUser,
+  customUserLogin,
+  fetchLinkedinAccessToken,
+  fetchLinkedinProfileJwt,
+} = require("./controller");
 const validator = require("./middlewares/validator");
 const { NewCustomUserSchema, UserLoginSchema } = require("./schemas");
 
@@ -19,29 +24,42 @@ app.get("/healthcheck", (req, res) => {
 });
 app.get("/login/linkedin", (req, res) => {
   res.redirect(
-    `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.LINKEDIN_CLIENT_ID}&redirect_uri=http%3A%2F%2Flocalhost%3A4000%2Fredirect%2Flinkedin&state=987654321&scope=r_liteprofile%20r_emailaddress`
+    `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.LINKEDIN_CLIENT_ID}&redirect_uri=http%3A%2F%2Flocalhost%3A4000%2Fredirect%2Flinkedin&scope=r_emailaddress%20r_liteprofile`
   );
 });
-app.get("/redirect/linkedin", (req, res) => {
-  const { code } = req.query;
-  if (code === undefined) {
+app.get("/redirect/linkedin", async (req, res) => {
+  try {
+    const { code } = req.query;
+    if (code === undefined) {
+      res.set({
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers": "*",
+      });
+      return res.status(403).json({
+        status: false,
+        message: "We could not log you in with LinkedIn.",
+      });
+    }
     res.set({
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Credentials": true,
       "Access-Control-Allow-Headers": "*",
     });
-    return res.status(403).json({
-      status: false,
-      message: "We could not log you in with LinkedIn.",
+    res.json({
+      success: true,
+      token: await fetchLinkedinProfileJwt(
+        await fetchLinkedinAccessToken(code)
+      ),
     });
+  } catch (error) {
+    res.set({
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
+      "Access-Control-Allow-Headers": "*",
+    });
+    res.status(error.code).json({ success: false, message: error.message });
   }
-  console.log(code);
-  res.set({
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Credentials": true,
-    "Access-Control-Allow-Headers": "*",
-  });
-  res.end();
 });
 
 app.post(

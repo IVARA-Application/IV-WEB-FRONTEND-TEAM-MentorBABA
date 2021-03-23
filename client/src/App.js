@@ -38,6 +38,9 @@ function App() {
           <Route exact path="/thirdparty/linkedin">
             <ThirdPartyLogin type="linkedin" />
           </Route>
+          <Route exact path="/thirdparty/google">
+            <ThirdPartyLogin type="google" />
+          </Route>
           <Route exact path="/login">
             <LoginComp />
           </Route>

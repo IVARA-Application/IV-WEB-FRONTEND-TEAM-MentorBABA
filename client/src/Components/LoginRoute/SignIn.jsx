@@ -44,11 +44,9 @@ function SignIn() {
           <a href="https://vkrx5omg34.execute-api.ap-south-1.amazonaws.com/latest/login/linkedin">
             <img className="object-contain" src={linkedin} alt="Linkedin" />
           </a>
-          <img
-            className="object-contain opacity-25"
-            src={google}
-            alt="Google"
-          />
+          <a href="https://vkrx5omg34.execute-api.ap-south-1.amazonaws.com/latest/login/google">
+            <img className="object-contain" src={google} alt="Google" />
+          </a>
           <img className="object-contain opacity-25" src={fb} alt="Facebook" />
         </div>
         <p className="py-4 lg:py-10 text-xl">or use your email account:</p>

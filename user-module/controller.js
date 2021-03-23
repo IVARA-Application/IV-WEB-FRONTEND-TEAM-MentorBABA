@@ -36,6 +36,12 @@ const registerNewCustomUser = async (
   }
 };
 
+/**
+ * Generate JWT for custom user login
+ * @param {*} email The email address to login with
+ * @param {*} password The password to login with
+ * @returns JWT on successful login
+ */
 const customUserLogin = async (email, password) => {
   try {
     const userData = await (await database())
@@ -71,6 +77,11 @@ const customUserLogin = async (email, password) => {
   }
 };
 
+/**
+ * Exchange LinkedIn login code for an access token
+ * @param {*} code LinkedIn Login Code
+ * @returns LinkedIn access token
+ */
 const fetchLinkedinAccessToken = async (code) => {
   try {
     const response = await axios.post(

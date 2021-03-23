@@ -41,9 +41,15 @@ function SignIn() {
           Sign in to MentorBaba
         </h1>
         <div className="signin-options flex space-x-4 lg:space-x-8">
-          <img className="object-contain" src={fb} alt="" />
-          <img className="object-contain" src={google} alt="" />
-          <img className="object-contain" src={linkedin} alt="" />
+          <a href="https://vkrx5omg34.execute-api.ap-south-1.amazonaws.com/latest/login/linkedin">
+            <img className="object-contain" src={linkedin} alt="Linkedin" />
+          </a>
+          <img
+            className="object-contain opacity-25"
+            src={google}
+            alt="Google"
+          />
+          <img className="object-contain opacity-25" src={fb} alt="Facebook" />
         </div>
         <p className="py-4 lg:py-10 text-xl">or use your email account:</p>
         <form className="lg:py-2 px-8 lg:px-0" id="login-form">

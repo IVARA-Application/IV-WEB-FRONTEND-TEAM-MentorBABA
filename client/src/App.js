@@ -25,6 +25,7 @@ import BabaStartPage from "./Components/BabaStartPage";
 import BabaCubePage from "./Components/BabaCubePage";
 import BabaValuatorPage from "./Components/BabaValuatorPage";
 import BabaIncPage from "./Components/BabaIncPage";
+import ThirdPartyLogin from "./Components/ThirdPartyLogin";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
         <>
           <Route exact path="/">
             <HomeComp />
+          </Route>
+          <Route exact path="/thirdparty/linkedin">
+            <ThirdPartyLogin type="linkedin" />
           </Route>
           <Route exact path="/login">
             <LoginComp />

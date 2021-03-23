@@ -24,7 +24,7 @@ app.get("/healthcheck", (req, res) => {
 });
 app.get("/login/linkedin", (req, res) => {
   res.redirect(
-    `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.LINKEDIN_CLIENT_ID}&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fthirdparty&scope=r_emailaddress%20r_liteprofile`
+    `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${process.env.LINKEDIN_CLIENT_ID}&redirect_uri=${process.env.LINKEDIN_REDIRECT_URI}&scope=r_emailaddress%20r_liteprofile`
   );
 });
 app.get("/redirect/linkedin", async (req, res) => {

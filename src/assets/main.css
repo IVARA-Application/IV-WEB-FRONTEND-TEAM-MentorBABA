@@ -64,6 +64,11 @@ img {
 .main {
   background-color: #e6e6e6;
   overflow: hidden;
+  min-height: 95vh;
+}
+.Navbar {
+  min-height: 5vh;
+  /* background-color: #e6e6e6; */
 }
 
 .circle {

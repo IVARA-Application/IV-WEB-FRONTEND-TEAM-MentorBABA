@@ -11,7 +11,7 @@ function Entrepreneurs() {
         </h1>
       </div>
       <div className="flex flex-col md:flex-row lg:py-8 lg:mx-32 items-center justify-between">
-        <p className="text-xl my-4 lg:text-2xl 2xl:mr-96 flex-1">
+        <p className="text-xl my-4 lg:text-2xl flex-1">
           MentorBaba, helps young entrepreneurs to explore and learn more about
           the Start-Up culture. Right from the first step of registering their
           start-ups, to investment and then the big launch, we help the
@@ -22,7 +22,7 @@ function Entrepreneurs() {
         </div>
       </div>
       <div className="flex flex-col md:flex-row lg:py-8 lg:mx-32 items-center justify-between">
-        <p className="text-xl my-4 lg:text-2xl 2xl:mr-96 flex-1">
+        <p className="text-xl my-4 lg:text-2xl flex-1">
           MentorBaba, helps them up-skilling in entrepreneurial skills and in
           building the right team,which is driven by hard-work, motivation and
           an urge to succeed.
@@ -32,7 +32,7 @@ function Entrepreneurs() {
         </div>
       </div>
       <div className="flex flex-col md:flex-row lg:py-8 lg:mx-32 items-center justify-between">
-        <p className="text-xl my-4 lg:text-2xl 2xl:mr-96 flex-1">
+        <p className="text-xl my-4 lg:text-2xl flex-1">
           Mentors at MentorBaba, coach the new founders with the ability to
           pitch, to make pitch decks,to market their product and to plan their
           business model. We also connect them with the right investor too!

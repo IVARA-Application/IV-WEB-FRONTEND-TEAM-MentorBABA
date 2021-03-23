@@ -11,7 +11,7 @@ function NavBar() {
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <div className="main">
+    <div className="Navbar">
       <div className="flex justify-between items-center md:w-4/5 md:m-auto xl:w-full xl:m-auto">
         <h1 className="text-2xl lg:text-4xl xl:px-16 px-4 py-2 xl:pb-6 xl:py-4 xl:ml-6">
           Mentor<span className="logo">Baba</span>

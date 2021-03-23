@@ -13,7 +13,7 @@ function BabaStartPage() {
           <span>Baba</span>Start
         </h1>
       </div>
-      <div className="w-6/12 m-auto">
+      <div className="w-3/4 m-auto">
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-2 xl:gap-8">
           <div className="flex md:col-start-1 md:col-end-3 xl:col-start-1 xl:col-end-4 w-full">
             <input
@@ -30,7 +30,7 @@ function BabaStartPage() {
           </select>
         </div>
       </div>
-      <div className="flex justify-center mt-8 w-6/12 m-auto">
+      <div className="flex justify-center mt-8 w-3/4 m-auto">
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-8 w-full">
           <div className="md:flex col-start-1 col-end-2 xl:col-start-1 xl:col-end-4">
             <img className="w-full rounded" src={img} alt="" />
@@ -58,7 +58,7 @@ function BabaStartPage() {
       <h1 className="text-center text-xl md:text-2xl py-8 md:font-semibold text-white">
         Famous Startups of India
       </h1>
-      <div className="w-6/12 m-auto">
+      <div className="w-3/4 m-auto">
         <div
           className="grid grid-cols-2
            lg:grid-cols-4"

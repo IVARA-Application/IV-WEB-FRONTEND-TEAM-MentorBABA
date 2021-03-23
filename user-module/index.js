@@ -8,6 +8,7 @@ const {
   fetchLinkedinAccessToken,
   fetchLinkedinProfileJwt,
   generateGoogleLoginUrl,
+  fetchGoogleProfileJwt,
 } = require("./controller");
 const validator = require("./middlewares/validator");
 const { NewCustomUserSchema, UserLoginSchema } = require("./schemas");
@@ -70,6 +71,39 @@ app.get("/redirect/linkedin", async (req, res) => {
 // Get login URL for Google
 app.get("/login/google", async (re, res) => {
   res.redirect(generateGoogleLoginUrl());
+});
+// Exchange Google login token for JWT
+app.get("/redirect/google", async (req, res) => {
+  try {
+    const { code } = req.query;
+    if (code === undefined) {
+      res.set({
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers": "*",
+      });
+      return res.status(403).json({
+        status: false,
+        message: "We could not log you in with Google.",
+      });
+    }
+    res.set({
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
+      "Access-Control-Allow-Headers": "*",
+    });
+    res.json({
+      success: true,
+      token: await fetchGoogleProfileJwt(code),
+    });
+  } catch (error) {
+    res.set({
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
+      "Access-Control-Allow-Headers": "*",
+    });
+    res.status(error.code).json({ success: false, message: error.message });
+  }
 });
 
 // Register new custom user

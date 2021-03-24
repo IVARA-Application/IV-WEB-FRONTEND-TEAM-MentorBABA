@@ -1,4 +1,5 @@
 import React from "react";
+import * as FaIcons from "react-icons/fa";
 
 function Footer() {
   return (
@@ -18,38 +19,37 @@ function Footer() {
           </h1>
           <p className="lg:my-8 text-center text-lg lg:text-2xl">
             1800-xxxx-xxx <br />
-            hello@iventorsinitiatives.com <br />
+            hello@mentorbaba.co <br />
             Uttar Pradesh, India
           </p>
         </div>
         <div className="text-xl lg:text-2xl text-center mt-4 lg:mt-16 flex-1 underline">
-          <ul className="">
+          <ul className="flex items-center justify-around lg:flex-col lg:justify-center lg:space-y-8">
             <li>FAQ</li>
-            <li className="my-2 lg:my-8">Blogs</li>
-            <li className="my-2 lg:my-8">IVARA</li>
-            <li className="my-2 lg:my-8">Terms</li>
+            <li className="">Blogs</li>
+            <li className="">IVARA</li>
+            <li className="">Terms</li>
           </ul>
         </div>
       </div>
-      <div className="block lg:flex py-2 lg:pb-4 xl:ml-28 justify-evenly">
+      <div className="block lg:flex py-2 lg:pb-4 xl:ml-28 jus">
         <ul className="flex justify-center items-center gap-4 lg:gap-10 text-xl lg:text-3xl">
           <li>
-            <i class="fab fa-facebook"></i>
+            <FaIcons.FaFacebookSquare />
           </li>
           <li>
-            <i class="fab fa-instagram"></i>
+            <FaIcons.FaInstagram />
           </li>
           <li>
-            <i class="fab fa-linkedin-in"></i>
+            <FaIcons.FaLinkedin />
           </li>
           <li>
-            <i class="fab fa-twitter"></i>
+            <FaIcons.FaTwitter />
           </li>
         </ul>
-
-        <div className="text-center lg:text-2xl my-4 lg:ml-96">
-          2021 IVentors Initiatives Pvt. Ltd
-        </div>
+      </div>
+      <div className="text-center lg:text-2xl py-8">
+        2021 IVentors Initiatives Pvt. Ltd
       </div>
     </div>
   );

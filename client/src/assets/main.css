@@ -50,20 +50,6 @@ img {
   position: relative;
 }
 
-.header {
-  position: relative;
-}
-
-.menu {
-  position: absolute;
-  top: 30%;
-  right: 5%;
-}
-
-.menu img {
-  width: 2.75rem;
-}
-
 .left-circle {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -78,6 +64,11 @@ img {
 .main {
   background-color: #e6e6e6;
   overflow: hidden;
+  min-height: 95vh;
+}
+.Navbar {
+  min-height: 5vh;
+  /* background-color: #e6e6e6; */
 }
 
 .circle {
@@ -85,8 +76,8 @@ img {
   transform: translate(-50%, -50%);
   top: 85%;
   left: 110%;
-  height: 60rem;
-  width: 60rem;
+  height: 62rem;
+  width: 62rem;
   border: solid 0.1rem #2f2e41;
   border-radius: 100%;
 }
@@ -94,8 +85,8 @@ img {
 .grad-circle {
   position: absolute;
   transform: translate(-50%, -50%);
-  top: 95%;
-  left: 110%;
+  top: 92%;
+  left: 125%;
   height: 55rem;
   width: 55rem;
   border: none;
@@ -234,11 +225,11 @@ select {
 }
 
 .rectangle {
-  width: 20rem;
+  width: 30rem;
   height: 18rem;
   position: absolute;
-  top: 15%;
-  left: 30%;
+  top: 12%;
+  left: 20%;
   border: solid 0.5rem #584efe;
 }
 

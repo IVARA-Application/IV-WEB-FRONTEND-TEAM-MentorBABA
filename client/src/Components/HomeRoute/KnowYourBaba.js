@@ -1,8 +1,10 @@
 import React from "react";
-import kyb from "../../img/kyb.png";
-import kyb1 from "../../img/kyb1.png";
-import kyb3 from "../../img/kyb3.png";
-import kyb4 from "../../img/kyb4.png";
+import Mentor1 from "../../img/Mentor1.png";
+import Mentor2 from "../../img/Mentor2.jpeg";
+import Mentor3 from "../../img/Mentor3.jpeg";
+import Mentor4 from "../../img/Mentor4.jpg";
+import Mentor5 from "../../img/Mentor5.jpg";
+import Mentor6 from "../../img/Mentor6.jpg";
 
 function KnowYourBaba() {
   return (
@@ -14,8 +16,12 @@ function KnowYourBaba() {
       </div>
       <div className="flex flex-col lg:flex-row items-center ">
         <div className="left-kyb kyb object-contain flex justify-center items-center flex-1">
-          <span className="hidden lg:block rectangle"></span>
-          <img src={kyb} alt="" />
+          <span className="hidden 2xl:block rectangle"></span>
+          <img
+            src={Mentor5}
+            className="object-contain w-2/4 h-auto rounded pb-2"
+            alt=""
+          />
         </div>
         <div className="right-kyb flex-1 xl:pr-40">
           <p className=" md:text-2xl lg:py-8 px-8">
@@ -36,11 +42,15 @@ function KnowYourBaba() {
         </h1>
         <span className="hidden xl:block line"></span>
         <div className="flex md:flex-row flex-wrap gap-6 items-center justify-center lg:py-8">
-          <img src={kyb1} alt="" />
-          <img src={kyb1} alt="" />
-          <img src={kyb3} alt="" />
-          <img src={kyb4} alt="" />
-          <img src={kyb4} alt="" />
+          <img src={Mentor1} className="object-contain w-48 rounded" alt="" />
+          <img src={Mentor2} className="object-contain w-40 rounded" alt="" />
+          <img src={Mentor3} className="object-contain w-48 rounded" alt="" />
+          <img
+            src={Mentor4}
+            className="object-contain w-32 h-48 rounded"
+            alt=""
+          />
+          <img src={Mentor6} className="object-contain w-48 rounded" alt="" />
         </div>
       </div>
     </div>

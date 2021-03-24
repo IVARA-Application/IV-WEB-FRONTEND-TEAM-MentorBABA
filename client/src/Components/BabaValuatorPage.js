@@ -2,7 +2,7 @@ import React from "react";
 
 function BabaValuatorPage() {
   return (
-    <div className="baba-valuator-page flex flex-col justify-center items-center">
+    <div className="baba-valuator-page flex flex-col justify-center items-center min-h-screen">
       <span className="bv-circle hidden w-full lg:block"></span>
       <span className="bv-triangle hidden lg:block"></span>
       <div className="baba-valuator-page">

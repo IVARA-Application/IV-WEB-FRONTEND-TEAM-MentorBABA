@@ -1,0 +1,10 @@
+{
+  "lambda": {
+    "role": "mentor-baba-user-module-executor",
+    "name": "mentor-baba-user-module",
+    "region": "ap-south-1"
+  },
+  "api": {
+    "id": "vkrx5omg34"
+  }
+}

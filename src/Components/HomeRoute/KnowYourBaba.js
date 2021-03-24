@@ -1,24 +1,30 @@
 import React from "react";
-import kyb from "../../img/kyb.png";
-import kyb1 from "../../img/kyb1.png";
-import kyb3 from "../../img/kyb3.png";
-import kyb4 from "../../img/kyb4.png";
+import Mentor1 from "../../img/Mentor1.png";
+import Mentor2 from "../../img/Mentor2.jpeg";
+import Mentor3 from "../../img/Mentor3.jpeg";
+import Mentor4 from "../../img/Mentor4.jpg";
+import Mentor5 from "../../img/Mentor5.jpg";
+import Mentor6 from "../../img/Mentor6.jpg";
 
 function KnowYourBaba() {
   return (
-    <div className="kyb-container mt-16">
+    <div className="kyb-container lg:mt-16">
       <div>
-        <h1 className="text-center text-5xl mb-16">
+        <h1 className="text-center text-3xl  lg:text-5xl my-4 lg:mb-16">
           <span>Know Your</span> Baba!
         </h1>
       </div>
-      <div className="flex">
-        <div className="left-kyb kyb w-6/12 flex justify-center items-center">
-          <span className="rectangle"></span>
-          <img src={kyb} alt="" />
+      <div className="flex flex-col lg:flex-row items-center ">
+        <div className="left-kyb kyb object-contain flex justify-center items-center flex-1">
+          <span className="hidden 2xl:block rectangle"></span>
+          <img
+            src={Mentor5}
+            className="object-contain w-2/4 h-auto rounded pb-2"
+            alt=""
+          />
         </div>
-        <div className="right-kyb w-6/12 pr-40">
-          <p className="text-2xl py-8">
+        <div className="right-kyb flex-1 xl:pr-40">
+          <p className=" md:text-2xl lg:py-8 px-8">
             MentorBaba was ideated at IIT Gandhinagar in 2019 when Kamalesh
             Dwivedi and Krishna Kunapuli of 3Lines Venture Capital, Denver, USA
             were conducting a HyperAccelerator program for Startups. The beta
@@ -31,16 +37,20 @@ function KnowYourBaba() {
         </div>
       </div>
       <div className="meet-the-team">
-        <h1 className="text-center text-5xl py-12">
+        <h1 className="text-center text-3xl lg:text-5xl py-6 lg:py-12">
           <span>Meet</span> The Team
         </h1>
-        <span className="line"></span>
-        <div className="flex gap-6 items-center justify-center py-8">
-          <img src={kyb1} alt="" />
-          <img src={kyb1} alt="" />
-          <img src={kyb3} alt="" />
-          <img src={kyb4} alt="" />
-          <img src={kyb4} alt="" />
+        <span className="hidden xl:block line"></span>
+        <div className="flex md:flex-row flex-wrap gap-6 items-center justify-center lg:py-8">
+          <img src={Mentor1} className="object-contain w-48 rounded" alt="" />
+          <img src={Mentor2} className="object-contain w-40 rounded" alt="" />
+          <img src={Mentor3} className="object-contain w-48 rounded" alt="" />
+          <img
+            src={Mentor4}
+            className="object-contain w-32 h-48 rounded"
+            alt=""
+          />
+          <img src={Mentor6} className="object-contain w-48 rounded" alt="" />
         </div>
       </div>
     </div>

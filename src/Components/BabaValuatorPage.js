@@ -2,14 +2,18 @@ import React from "react";
 
 function BabaValuatorPage() {
   return (
-    <div className=" baba-valuator-page flex flex-col justify-center items-center">
-      <span className="bv-circle"></span>
-      <span className="bv-triangle"></span>
+    <div className="baba-valuator-page flex flex-col justify-center items-center">
+      <span className="bv-circle hidden w-full lg:block"></span>
+      <span className="bv-triangle hidden lg:block"></span>
       <div className="baba-valuator-page">
-        <h1 className="text-4xl py-4 pt-10 text-center">BabaValuator</h1>
-        <p className="text-5xl py-4 pb-8">Valuate your startup today!</p>
+        <h1 className=" text-2xl lg:text-4xl py-2 lg:py-4 lg:pt-10 text-center">
+          BabaValuator
+        </h1>
+        <p className="text-2xl lg:text-4xl xl:text-5xl py-2 lg:py-4 pb-4 lg:pb-8">
+          Valuate your startup today!
+        </p>
       </div>
-      <div className="bg-gray-100 w-4/6 px-12 h-80 pt-10">
+      <div className="bg-gray-100 w-4/5 md:w-4/6 px-12 h-auto py-10">
         <h4 className="text-2xl">
           Ever wondered, what your Start-up is worth of?
         </h4>

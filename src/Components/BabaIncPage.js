@@ -7,11 +7,11 @@ function BabaIncPage() {
         <h1 className="text-5xl">
           Baba<span className="text-black">Inc</span>
         </h1>
-        <h2 className="text-3xl py-4">
+        <h2 className="text-xl md:text-3xl py-4">
           Register your company, <br />
           get a trademark and lot more
         </h2>
-        <p className="w-1/2 text-center m-auto text-xl">
+        <p className="lg:w-1/2 px-4 text-center m-auto text-md md:text-xl">
           In order to launch the venture, an entrepreneur needs to incorporate
           his/her business entity, be it proprietorship firm,partnership, LLP or
           pvt ltd company. They also need to fulfill other regulatory
@@ -25,8 +25,8 @@ function BabaIncPage() {
       <div>
         <h1 className="text-white text-3xl py-4">Our Services</h1>
       </div>
-      <div className="babainc-bottom-container flex w-2/4 m-auto rounded-xl justify-around mb-12">
-        <div className="left-babainc px-4 flex-1 border-r-2 border-black">
+      <div className="babainc-bottom-container flex flex-wrap w-4/5 xl:w-2/4 m-auto rounded-xl justify-around mb-12">
+        <div className="left-babainc px-4 flex-1 md:border-r-2 border-black">
           <h1 className="py-4">Business Registrations</h1>
           <div className="py-2">
             <div className="bg-gray-200 p-2 my-2 rounded">

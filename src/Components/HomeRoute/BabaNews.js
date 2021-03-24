@@ -7,18 +7,18 @@ import { Link } from "react-router-dom";
 
 function BabaNews() {
   return (
-    <div className="news-container px-28">
-      <div className="flex justify-between items-center">
-        <h1 className="text-7xl py-8 tracking-wide">
+    <div className="news-container py-2 pb-6 px-8 lg:px-28 bg-blue-200 xl:bg-opacity-0">
+      <div className="flex flex-wrap justify-between items-center">
+        <h1 className=" text-4xl lg:text-7xl lg:py-8 tracking-wide">
           <span>Baba</span> News
         </h1>
-        <p className="text-4xl text-white tracking-widest">
+        <p className="text-2xl lg:text-4xl text-white tracking-widest">
           News that matters!
         </p>
       </div>
-      <span className="left"></span>
-      <span className="right"></span>
-      <div className="flex gap-10 justify-evenly pt-20">
+      <span className="left hidden xl:block min-h-screen"></span>
+      <span className="right hidden py xl:block min-h-screen"></span>
+      <div className="flex gap-8 justify-evenly xl:pt-20 flex-wrap space-y-2 py-4">
         <Link to="/StartupNews">
           <div className="flex flex-col justify-center items-center bg-white card">
             <div className="relative">
@@ -34,7 +34,7 @@ function BabaNews() {
           </div>
         </Link>
         <Link to="/BabaBlogs">
-          <div className="   flex flex-col justify-center items-center  bg-white card">
+          <div className="   flex flex-col justify-center items-center bg-white card">
             <div className="relative">
               <img src={blog} alt="" />
               <p className="absolute text-white bottom-4 text-xl left-0 text-center w-full">

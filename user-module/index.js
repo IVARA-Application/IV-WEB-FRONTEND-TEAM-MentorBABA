@@ -156,6 +156,7 @@ app.post("/login", validator("body", UserLoginSchema), async (req, res) => {
   }
 });
 // Accept contact us query
+app.post("/contactus", async (req, res) => {});
 
 // App export for Claudia
 module.exports = app;

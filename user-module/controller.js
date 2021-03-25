@@ -214,6 +214,22 @@ const fetchGoogleProfileJwt = async (code) => {
   }
 };
 
+const storeContactUs = async (data) => {
+  try {
+    const db = await database();
+    await db.collection("users").insertOne({ ...data });
+  } catch (error) {
+    logger.warn(error);
+    if (!error.isCustom)
+      throw {
+        code: 500,
+        message:
+          "There was some issue at the server end. We are working to fix it as soon as possible.",
+      };
+    throw { code: error.code, message: error.message };
+  }
+};
+
 module.exports = {
   registerNewCustomUser: registerNewCustomUser,
   customUserLogin: customUserLogin,

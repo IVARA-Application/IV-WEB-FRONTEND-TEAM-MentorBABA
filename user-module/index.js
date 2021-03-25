@@ -155,6 +155,7 @@ app.post("/login", validator("body", UserLoginSchema), async (req, res) => {
     res.status(error.code).json({ success: false, message: error.message });
   }
 });
+// Accept contact us query
 
 // App export for Claudia
 module.exports = app;

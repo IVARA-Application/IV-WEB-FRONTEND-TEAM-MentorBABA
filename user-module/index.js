@@ -9,9 +9,14 @@ const {
   fetchLinkedinProfileJwt,
   generateGoogleLoginUrl,
   fetchGoogleProfileJwt,
+  storeContactUs,
 } = require("./controller");
 const validator = require("./middlewares/validator");
-const { NewCustomUserSchema, UserLoginSchema } = require("./schemas");
+const {
+  NewCustomUserSchema,
+  UserLoginSchema,
+  ContactUsSchema,
+} = require("./schemas");
 
 const app = express();
 
@@ -156,7 +161,27 @@ app.post("/login", validator("body", UserLoginSchema), async (req, res) => {
   }
 });
 // Accept contact us query
-app.post("/contactus", async (req, res) => {});
+app.post("/contactus", validator("body", ContactUsSchema), async (req, res) => {
+  try {
+    res.set({
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
+      "Access-Control-Allow-Headers": "*",
+    });
+    await storeContactUs(req.body);
+    res.json({
+      success: true,
+      message: "Youur query has been successfully stored in the database.",
+    });
+  } catch (error) {
+    res.set({
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
+      "Access-Control-Allow-Headers": "*",
+    });
+    res.status(error.code).json({ success: false, message: error.message });
+  }
+});
 
 // App export for Claudia
 module.exports = app;

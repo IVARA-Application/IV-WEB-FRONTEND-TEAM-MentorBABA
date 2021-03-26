@@ -1,0 +1,10 @@
+{
+  "lambda": {
+    "role": "mentorbaba-blog-module-executor",
+    "name": "mentorbaba-blog-module",
+    "region": "ap-south-1"
+  },
+  "api": {
+    "id": "4qinn6xsdd"
+  }
+}

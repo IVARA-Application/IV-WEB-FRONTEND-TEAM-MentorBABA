@@ -28,6 +28,13 @@ const registerNewCustomUser = async (
   try {
     password = await argon2.hash(password);
     const db = await database();
+    const response = await db.collection("users").findOne({ email });
+    if (response !== null)
+      throw {
+        isCustom: true,
+        code: 409,
+        message: "User already exists",
+      };
     await db
       .collection("users")
       .insertOne({ name, email, password, occupation, phone, type: "custom" });

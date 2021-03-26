@@ -33,9 +33,12 @@ function SignIn() {
       if (!response.data.success) throw Error(response.data.message);
       window.localStorage.setItem("token", response.data.token);
       alert("You are logged in. Welcome to MentorBaba!");
+      window.location.replace("/");
     } catch (error) {
       console.error(error);
       alert(error.message);
+      setDisabled("");
+      setMessage("Sign In");
     }
   }
   return (

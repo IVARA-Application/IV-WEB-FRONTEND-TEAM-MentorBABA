@@ -69,9 +69,13 @@ function CreateAccount() {
           Create Account
         </h1>
         <div className="signin-options flex space-x-4 lg:space-x-8">
-          <img src={fb} alt="" />
-          <img src={google} alt="" />
-          <img src={linkedin} alt="" />
+          <a href="https://vkrx5omg34.execute-api.ap-south-1.amazonaws.com/latest/login/linkedin">
+            <img className="object-contain" src={linkedin} alt="Linkedin" />
+          </a>
+          <a href="https://vkrx5omg34.execute-api.ap-south-1.amazonaws.com/latest/login/google">
+            <img className="object-contain" src={google} alt="Google" />
+          </a>
+          <img className="object-contain opacity-25" src={fb} alt="Facebook" />
         </div>
         <p className="py-10 text-xl">or use your email for registration</p>
         <form className="py-2 flex flex-col px-4 md:px-0">

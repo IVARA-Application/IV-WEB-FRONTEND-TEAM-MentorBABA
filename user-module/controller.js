@@ -237,4 +237,5 @@ module.exports = {
   fetchLinkedinProfileJwt: fetchLinkedinProfileJwt,
   generateGoogleLoginUrl: generateGoogleLoginUrl,
   fetchGoogleProfileJwt: fetchGoogleProfileJwt,
+  storeContactUs: storeContactUs,
 };

@@ -1,39 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import fb from "../../img/facebook.png";
 import google from "../../img/google.png";
 import linkedin from "../../img/linkedin.png";
 import { Link } from "react-router-dom";
 
-async function handleLoginSubmission(event) {
-  event.preventDefault();
-  console.log("Sending...");
-  try {
-    const response = await axios.post(
-      "https://vkrx5omg34.execute-api.ap-south-1.amazonaws.com/latest/login",
-      {
-        email: document.getElementById("email-input").value,
-        password: document.getElementById("password-input").value,
-      },
-      {
-        validateStatus: function (status) {
-          return status >= 200 && status < 500;
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    if (!response.data.success) throw Error(response.data.message);
-    window.localStorage.setItem("token", response.data.token);
-    alert("You are logged in. Welcome to MentorBaba!");
-  } catch (error) {
-    console.error(error);
-    alert(error.message);
-  }
-}
-
 function SignIn() {
+  const [disabled, setDisabled] = useState("");
+  const [message, setMessage] = useState("Sign Up");
+  async function handleLoginSubmission(event) {
+    event.preventDefault();
+
+    setMessage("Please Wait");
+    setDisabled("true");
+    console.log("Sending...");
+    try {
+      const response = await axios.post(
+        "https://vkrx5omg34.execute-api.ap-south-1.amazonaws.com/latest/login",
+        {
+          email: document.getElementById("email-input").value,
+          password: document.getElementById("password-input").value,
+        },
+        {
+          validateStatus: function (status) {
+            return status >= 200 && status < 500;
+          },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (!response.data.success) throw Error(response.data.message);
+      window.localStorage.setItem("token", response.data.token);
+      alert("You are logged in. Welcome to MentorBaba!");
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    }
+  }
   return (
     <div className="flex flex-wrap signin-container">
       <div className="left-signin w-full md:w-3/5 flex flex-col items-center justify-center">
@@ -73,8 +77,9 @@ function SignIn() {
         <button
           className="rounded-full py-2 px-20 mb-4 lg:mb-0 text-2xl"
           onClick={handleLoginSubmission}
+          disabled={disabled}
         >
-          Sign In
+          {message}
         </button>
       </div>
       <div className="right-signin w-full md:w-2/5 flex flex-col items-center md:justify-center">

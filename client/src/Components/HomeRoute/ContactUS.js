@@ -3,7 +3,7 @@ import axios from "axios";
 
 function ContactUS() {
   const [disabled, setDisabled] = useState("");
-  const [message, setMessage] = useState("Sign Up");
+  const [message, setMessage] = useState("Submit");
   async function handleContactSubmission(event) {
     event.preventDefault();
     setMessage("Please Wait");

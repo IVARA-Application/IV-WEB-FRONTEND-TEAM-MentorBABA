@@ -224,7 +224,7 @@ const fetchGoogleProfileJwt = async (code) => {
 const storeContactUs = async (data) => {
   try {
     const db = await database();
-    await db.collection("users").insertOne({ ...data });
+    await db.collection("contactus").insertOne({ ...data });
   } catch (error) {
     logger.warn(error);
     if (!error.isCustom)

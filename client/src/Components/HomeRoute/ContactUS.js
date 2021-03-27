@@ -1,6 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 function ContactUS() {
+  const [disabled, setDisabled] = useState("");
+  const [message, setMessage] = useState("Sign Up");
+  async function handleContactSubmission(event) {
+    event.preventDefault();
+    setMessage("Please Wait");
+    setDisabled("true");
+    console.log("Sending request...");
+    try {
+      const response = await axios.post(
+        "https://vkrx5omg34.execute-api.ap-south-1.amazonaws.com/latest/contactus",
+        {
+          firstName: document.getElementById("fname-input").value,
+          lastName: document.getElementById("lname-input").value,
+          companyName: document.getElementById("company-input").value,
+          phoneNumber: document.getElementById("phone-input").value,
+          description: document.getElementById("description-input").value,
+          workEmail: document.getElementById("work-input").value,
+        },
+        {
+          validateStatus: function (status) {
+            return status >= 200 && status < 500;
+          },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (!response.data.success) throw Error(response.data.message);
+      alert("Thank you for contacting us. We will get in touch with you soon!");
+      setDisabled("");
+      setMessage("Submit");
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+      setDisabled("");
+      setMessage("Submit");
+    }
+  }
+
   return (
     <div className="contactUs-container">
       <div className="flex items-center justify-center flex-col">
@@ -42,37 +82,53 @@ function ContactUS() {
             type="text"
             placeholder="First Name"
             className="p-2 rounded col-start-1 col-end-2"
+            id="fname-input"
+            required
           />
           <input
             type="text"
             placeholder="Last Name"
             className="p-2 rounded col-start-2 col-end-3"
+            id="lname-input"
+            required
           />
           <input
             type="email"
             placeholder="Work Email"
             className="p-2 rounded col-start-1 col-end-3"
+            id="work-input"
+            required
           />
           <input
             type="text"
             placeholder="Company Name"
             className="p-2 rounded col-start-1 col-end-3"
+            id="company-input"
+            required
           />
           <input
             type="text"
             placeholder="Phone Number"
             className="p-2 rounded col-start-1 col-end-3"
+            id="phone-input"
+            required
           />
           <input
             type="text"
             placeholder="Description"
             className="p-2 rounded col-start-1 col-end-3"
+            id="description-input"
+            required
           />
         </form>
       </div>
       <div className="flex justify-center">
-        <button className="py-2 px-8 rounded-md my-2 lg:my-8 text-black text-lg md:text-xl bg-white border-none shadow-none">
-          Submit
+        <button
+          className="py-2 px-8 rounded-md my-2 lg:my-8 text-black text-lg md:text-xl bg-white border-none shadow-none"
+          onClick={handleContactSubmission}
+          disabled={disabled}
+        >
+          {message}
         </button>
       </div>
     </div>

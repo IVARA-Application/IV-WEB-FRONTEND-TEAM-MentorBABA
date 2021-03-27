@@ -7,28 +7,28 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
-    title: "PlaceHolder",
-    path: "/",
+    title: "BabaBlogs",
+    path: "/BabaBlogs",
     cName: "nav-text",
   },
   {
-    title: "PlaceHolder1",
-    path: "/",
+    title: "BabaStart",
+    path: "/BabaStartPage",
     cName: "nav-text",
   },
   {
-    title: "Placeholder2",
-    path: "/",
+    title: "BabaCube",
+    path: "/BabaCubePage",
     cName: "nav-text",
   },
   {
-    title: "Placeholder3",
-    path: "/",
+    title: "BabaValuator",
+    path: "/BabaValuatorPage",
     cName: "nav-text",
   },
   {
-    title: "Placeholder3",
-    path: "/",
+    title: "BabaINC",
+    path: "/BabaIncPage",
     cName: "nav-text",
   },
 ];

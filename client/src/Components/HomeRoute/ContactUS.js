@@ -22,7 +22,7 @@ function ContactUS() {
           <h1 className="py-2 text-xl lg:py-4 lg:text-3xl underline lg:no-underline">
             Mail Us
           </h1>
-          <p className="lg:text-xl">hello@metorbaba.co</p>
+          <p className="lg:text-xl">hello@iventorsinitiatives.com</p>
         </div>
         <div className="flex-1">
           <h1 className="py-2 text-xl lg:py-4 lg:text-3xl underline lg:no-underline">

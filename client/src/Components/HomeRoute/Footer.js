@@ -19,7 +19,7 @@ function Footer() {
           </h1>
           <p className="lg:my-8 text-center text-lg lg:text-2xl">
             1800-xxxx-xxx <br />
-            hello@mentorbaba.co <br />
+            hello@iventorsinitiatives.com <br />
             Uttar Pradesh, India
           </p>
         </div>

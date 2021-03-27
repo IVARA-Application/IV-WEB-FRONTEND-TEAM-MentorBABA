@@ -14,7 +14,7 @@ function BabaCubePage() {
             <span>Baba</span>Cube
           </h1>
         </div>
-        <div className="w-6/12 m-auto">
+        <div className="w-3/4 m-auto">
           <div className="grid xl:grid-cols-4 gap-2 xl:gap-8">
             <div className="flex xl:col-start-1 xl:col-end-4 w-full">
               <input
@@ -31,7 +31,7 @@ function BabaCubePage() {
             </button>
           </div>
         </div>
-        <div className="flex justify-center mt-8 w-6/12 m-auto">
+        <div className="flex justify-center mt-8 w-3/4 m-auto">
           <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
             <div className="md:flex col-start-1 col-end-2 xl:col-start-1 xl:col-end-4">
               <img className="w-full rounded" src={img} alt="" />
@@ -59,7 +59,7 @@ function BabaCubePage() {
         <h1 className="text-center text-xl md:text-2xl py-8 md:font-semibold text-white">
           Top Incubators of India
         </h1>
-        <div className="w-6/12 m-auto">
+        <div className="w-3/4 m-auto">
           <div
             className="grid grid-cols-2
            lg:grid-cols-4"

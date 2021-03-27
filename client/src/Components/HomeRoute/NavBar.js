@@ -28,14 +28,14 @@ function NavBar() {
           <ul className="nav-menu-items" onClick={showSidebar}>
             <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
+                <AiIcons.AiOutlineArrowLeft />
               </Link>
             </li>
             {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
-                    <span className="ml-4">{item.title}</span>
+                    <span className="ml-4 navbar-li">{item.title}</span>
                   </Link>
                 </li>
               );

@@ -4,7 +4,7 @@
 }
 
 .nav-menu {
-  background-color: #253380;
+  background-color: #536dfe;
   width: 20rem;
   height: 100vh;
   display: flex;
@@ -31,8 +31,8 @@
 }
 
 .nav-text a {
+  color: white;
   text-decoration: none;
-  color: #ffffff;
   font-size: 18px;
   width: 95%;
   height: 100%;
@@ -43,7 +43,7 @@
 }
 
 .nav-text a:hover {
-  background-color: white;
+  background-color: black;
 }
 
 .nav-menu-items {
@@ -57,4 +57,9 @@
   display: flex;
   justify-content: start;
   align-items: center;
+}
+
+.navbar-li,
+li {
+  color: white;
 }

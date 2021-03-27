@@ -171,7 +171,7 @@ app.post("/contactus", validator("body", ContactUsSchema), async (req, res) => {
     await storeContactUs(req.body);
     res.json({
       success: true,
-      message: "Youur query has been successfully stored in the database.",
+      message: "Your query has been successfully stored in the database.",
     });
   } catch (error) {
     res.set({

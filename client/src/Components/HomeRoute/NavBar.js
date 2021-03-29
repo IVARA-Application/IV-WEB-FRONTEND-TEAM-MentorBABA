@@ -28,7 +28,7 @@ function NavBar() {
           <ul className="nav-menu-items" onClick={showSidebar}>
             <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineArrowLeft />
+                <AiIcons.AiOutlineArrowRight />
               </Link>
             </li>
             {SidebarData.map((item, index) => {

@@ -6,7 +6,7 @@ function Entrepreneurs() {
   return (
     <div className="Entre-container flex flex-col lg:mx-20 h-full m-4 lg:mt-8">
       <div>
-        <h1 className=" lg:text-center text-2xl lg:text-5xl lg:pb-20">
+        <h1 className="text-center text-2xl lg:text-5xl lg:pb-20">
           By entrepreneurs For entrepreneurs
         </h1>
       </div>

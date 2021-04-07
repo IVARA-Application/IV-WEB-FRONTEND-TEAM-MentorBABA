@@ -1,9 +1,19 @@
 const express = require("express");
 const Entrepreneur = require("../models/entrepreneur");
 const router = express.Router();
+const mongoose = require("mongoose");
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/blog";
 
 router.get("/", async (req, res) => {
   try {
+    mongoose.connect(dbUrl, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    });
+
+    const db = mongoose.connection;
     const { category } = req.query;
     if (category) {
       const entrepreneurs = await Entrepreneur.find({ category });
@@ -22,6 +32,14 @@ router.get("/", async (req, res) => {
 
 router.post("/search", async (req, res) => {
   try {
+    mongoose.connect(dbUrl, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    });
+
+    const db = mongoose.connection;
     const { category } = req.body;
     if (!category) return res.redirect("/entrepreneurs");
     db.close();
@@ -33,6 +51,14 @@ router.post("/search", async (req, res) => {
 });
 
 router.get("/mostviewed", async (req, res) => {
+  mongoose.connect(dbUrl, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  });
+
+  const db = mongoose.connection;
   const entrepreneurs = await Entrepreneur.find().sort({ views: -1 });
   db.close();
   res.json(entrepreneurs);
@@ -42,6 +68,14 @@ router.get("/mostviewed", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
+    mongoose.connect(dbUrl, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    });
+
+    const db = mongoose.connection;
     const { id } = req.params;
     const entrepreneur = await Entrepreneur.findById(id);
     let views = entrepreneur.views + 1;
@@ -61,6 +95,14 @@ router.get("/:id", async (req, res) => {
 
 router.post("/:id/like", async (req, res) => {
   try {
+    mongoose.connect(dbUrl, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    });
+
+    const db = mongoose.connection;
     const { id } = req.params;
     const entrepreneur = await Entrepreneur.findById(id);
     let likes = entrepreneur.likes + 1;

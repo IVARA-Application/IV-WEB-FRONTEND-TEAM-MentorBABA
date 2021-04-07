@@ -1,9 +1,19 @@
 const express = require("express");
 const Startup = require("../models/startup");
 const router = express.Router();
+const mongoose = require("mongoose");
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/blog";
 
 router.get("/", async (req, res) => {
   try {
+    mongoose.connect(dbUrl, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    });
+
+    const db = mongoose.connection;
     const { category } = req.query;
     if (category) {
       const startups = await Startup.find({ category });
@@ -22,6 +32,14 @@ router.get("/", async (req, res) => {
 
 router.post("/search", async (req, res) => {
   try {
+    mongoose.connect(dbUrl, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    });
+
+    const db = mongoose.connection;
     const { category } = req.body;
     if (!category) return res.redirect("/startups");
     db.close();
@@ -33,7 +51,16 @@ router.post("/search", async (req, res) => {
 });
 
 router.get("/mostviewed", async (req, res) => {
+  mongoose.connect(dbUrl, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  });
+
+  const db = mongoose.connection;
   const startups = await Startup.find().sort({ views: -1 });
+  db.close();
   res.json(startups);
 });
 
@@ -41,6 +68,14 @@ router.get("/mostviewed", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
+    mongoose.connect(dbUrl, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    });
+
+    const db = mongoose.connection;
     const { id } = req.params;
     const startup = await Startup.findById(id);
     let views = startup.views + 1;
@@ -58,6 +93,14 @@ router.get("/:id", async (req, res) => {
 
 router.post("/:id/like", async (req, res) => {
   try {
+    mongoose.connect(dbUrl, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    });
+
+    const db = mongoose.connection;
     const { id } = req.params;
     const startup = await Startup.findById(id);
     let likes = startup.likes + 1;

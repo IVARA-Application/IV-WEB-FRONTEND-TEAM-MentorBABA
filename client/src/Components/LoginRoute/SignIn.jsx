@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function SignIn() {
   const [disabled, setDisabled] = useState("");
-  const [message, setMessage] = useState("Sign Up");
+  const [message, setMessage] = useState("Sign In");
   async function handleLoginSubmission(event) {
     event.preventDefault();
 

@@ -31,7 +31,12 @@ function BabaValuatorPage() {
           worldwide.
         </p>
       </div>
-      <button className="my-8 py-2 text-white px-24 rounded-2xl text-xl">
+      <button
+        className="my-8 py-2 text-white px-24 rounded-2xl text-xl"
+        onClick={() => {
+          window.location.href = "https://forms.gle/pY1NB8fxpkJ786iL7";
+        }}
+      >
         Start Now! (It's Free)
       </button>
     </div>

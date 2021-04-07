@@ -2,24 +2,9 @@ require("dotenv").config();
 
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
-const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/blog";
 const blogRoutes = require("./routes/blog");
 const startupRoutes = require("./routes/startup");
 const entrepreneurRoutes = require("./routes/entrepreneur");
-
-mongoose.connect(dbUrl, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-});
-
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", () => {
-  console.log("Database connected!");
-});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

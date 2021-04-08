@@ -13,9 +13,16 @@ function NavBar() {
   return (
     <div className="Navbar">
       <div className="flex justify-between items-center md:w-4/5 md:m-auto xl:w-full xl:m-auto">
-        <h1 className="text-2xl lg:text-4xl xl:px-16 px-4 py-2 xl:pb-6 xl:py-4 xl:ml-6">
-          Mentor<span className="logo">Baba</span>
-        </h1>
+        <div className="nav text-lg md:text-xl md:flex items-center">
+          <h1 className="text-2xl lg:text-4xl xl:px-16 px-4 py-2 xl:pb-6 xl:py-4 xl:ml-6">
+            Mentor<span className="logo">Baba</span>
+          </h1>
+          <ul className="flex px-4 space-x-4">
+            <li>Investors</li>
+            <li>Founders</li>
+            <li>Mentors</li>
+          </ul>
+        </div>
         <div>
           <Link
             to="#"
@@ -48,37 +55,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-// import { IconContext } from "react-icons";
-
-// function Navbar() {
-//   return (
-//     <>
-//       <IconContext.Provider value={{ color: "#fff" }}>
-//         <div className="navbar">
-//           <Link to="#" className="menu-bars">
-//             <FaIcons.FaBars onClick={showSidebar} />
-//           </Link>
-//         </div>
-//         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-//           <ul className="nav-menu-items" onClick={showSidebar}>
-//             <li className="navbar-toggle">
-//               <Link to="#" className="menu-bars">
-//                 <AiIcons.AiOutlineClose />
-//               </Link>
-//             </li>
-//             {SidebarData.map((item, index) => {
-//               return (
-//                 <li key={index} className={item.cName}>
-//                   <Link to={item.path}>
-//                     <span>{item.title}</span>
-//                   </Link>
-//                 </li>
-//               );
-//             })}
-//           </ul>
-//         </nav>
-//       </IconContext.Provider>
-//     </>
-//   );
-// }

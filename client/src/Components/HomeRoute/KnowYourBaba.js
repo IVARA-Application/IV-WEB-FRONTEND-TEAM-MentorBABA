@@ -16,10 +16,10 @@ function KnowYourBaba() {
       </div>
       <div className="flex flex-col lg:flex-row items-center ">
         <div className="left-kyb kyb object-contain flex justify-center items-center flex-1">
-          <span className="hidden 2xl:block rectangle"></span>
+          <span className="hidden rectangle"></span>
           <img
             src={Mentor5}
-            className="object-contain w-2/4 h-auto rounded pb-2"
+            className="object-contain w-4/5 h-auto rounded pb-2"
             alt=""
           />
         </div>
@@ -36,21 +36,31 @@ function KnowYourBaba() {
           </p>
         </div>
       </div>
-      <div className="meet-the-team">
+      <div className="meet-the-team pb-4">
         <h1 className="text-center text-3xl lg:text-5xl py-6 lg:py-12">
           <span>Meet</span> The Team
         </h1>
         <span className="hidden xl:block line"></span>
         <div className="flex md:flex-row flex-wrap gap-6 items-center justify-center lg:py-8">
-          <img src={Mentor1} className="object-contain w-48 rounded" alt="" />
-          <img src={Mentor2} className="object-contain w-40 rounded" alt="" />
-          <img src={Mentor3} className="object-contain w-48 rounded" alt="" />
-          <img
-            src={Mentor4}
-            className="object-contain w-32 h-48 rounded"
-            alt=""
-          />
-          <img src={Mentor6} className="object-contain w-48 rounded" alt="" />
+          <a href="https://www.linkedin.com/in/dwivedivyansh">
+            <img src={Mentor1} className="object-contain w-48 rounded" alt="" />
+          </a>
+          <a href="https://www.linkedin.com/in/aditi-mishra-b123641a">
+            <img src={Mentor2} className="object-contain w-40 rounded" alt="" />
+          </a>
+          <a href="https://www.linkedin.com/in/tarun-bharadwaj-a83a02172">
+            <img src={Mentor3} className="object-contain w-48 rounded" alt="" />
+          </a>
+          <a href="https://www.linkedin.com/in/barath-kumar-b-09062000">
+            <img
+              src={Mentor4}
+              className="object-contain w-32 h-48 rounded"
+              alt=""
+            />
+          </a>
+          <a href="https://www.linkedin.com/in/tanishk-singh-722ab21b3">
+            <img src={Mentor6} className="object-contain w-48 rounded" alt="" />
+          </a>
         </div>
       </div>
     </div>

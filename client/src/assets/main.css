@@ -239,6 +239,7 @@ select {
   background-color: #584efe;
   position: absolute;
   top: 55%;
+  z-index: -1;
 }
 
 .baba-valuator-page h1 {

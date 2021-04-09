@@ -56,7 +56,7 @@ function ContactUS() {
           <h1 className="text-xl py-2 lg:py-4 lg:text-3xl underline lg:no-underline">
             Call Us
           </h1>
-          <p className="lg:text-xl">1800-XXX-XXXX</p>
+          <p className="lg:text-xl">784-0879-398</p>
         </div>
         <div className=" flex-1 lg:border-l-2 lg:border-r-2 lg:px-12">
           <h1 className="py-2 text-xl lg:py-4 lg:text-3xl underline lg:no-underline">
@@ -69,7 +69,9 @@ function ContactUS() {
             Address
           </h1>
           <p className="mx-8 lg:text-xl">
-            Lorem, ipsum dolor sit amet <br /> consectetur adipisicing elit.
+            Lucknow, India
+            <br />
+            Chennai, India
           </p>
         </div>
       </div>

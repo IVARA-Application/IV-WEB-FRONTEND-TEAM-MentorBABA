@@ -18,14 +18,23 @@ function Footer() {
             Contact Us:
           </h1>
           <p className="lg:my-8 text-center text-lg lg:text-2xl">
-            1800-xxxx-xxx <br />
+            784-0879-398 <br />
             hello@iventorsinitiatives.com <br />
-            Uttar Pradesh, India
+            Lucknow, India <br />
+            Chennai, India
           </p>
         </div>
         <div className="text-xl lg:text-2xl text-center mt-4 lg:mt-16 flex-1 underline">
           <ul className="flex items-center justify-around lg:flex-col lg:justify-center lg:space-y-8">
-            <li>FAQ</li>
+            <li>
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@iventorsinitiatives.com"
+                target="_blank"
+                className="hover:text-blue-500"
+              >
+                FAQ
+              </a>
+            </li>
             <li className="">Blogs</li>
             <li className="">IVARA</li>
             <li className="">Terms</li>
@@ -35,13 +44,28 @@ function Footer() {
       <div className="block lg:flex py-2 lg:pb-4 xl:ml-28 jus">
         <ul className="flex justify-center items-center gap-4 lg:gap-10 text-xl lg:text-3xl">
           <li>
-            <FaIcons.FaFacebookSquare />
+            <a
+              className="hover:text-blue-500"
+              href="https://www.facebook.com/mentorbaba.co/"
+            >
+              <FaIcons.FaFacebookSquare />
+            </a>
           </li>
           <li>
-            <FaIcons.FaInstagram />
+            <a
+              className="hover:text-blue-500"
+              href="https://instagram.com/mentorbababyiv?igshid=zybywnq0mpsq"
+            >
+              <FaIcons.FaInstagram />
+            </a>
           </li>
           <li>
-            <FaIcons.FaLinkedin />
+            <a
+              className="hover:text-blue-500"
+              href="https://www.linkedin.com/company/mentor-baba"
+            >
+              <FaIcons.FaLinkedin />
+            </a>
           </li>
           <li>
             <FaIcons.FaTwitter />

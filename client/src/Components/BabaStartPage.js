@@ -27,6 +27,58 @@ function BabaStartPage() {
           </div>
           <select className="text-white text-xl bg-gray-700 rounded-xl px-4 py-2 md:col-start-4 md:col-end-5 shadow-none">
             <option defaultValue>Domain</option>
+            <option value="">Newspapers</option>
+            <option value="">Non-profit Organization Management</option>
+            <option value="">Oil & Energy</option>
+            <option value="">Online Media</option>
+            <option value="">outsourcing / Offshoring</option>
+            <option value="">Package / Freight Delivery</option>
+            <option value="">Packaging & Containers</option>
+            <option value="">Paper & Forest Products</option>
+            <option value="">Performing Arts</option>
+            <option value="">Pharmaceuticals</option>
+            <option value="">Philanthropy</option>
+            <option value="">Photography</option>
+            <option value="">Plastics</option>
+            <option value="">Political Organization</option>
+            <option value="">Primary/Secondary Education</option>
+            <option value="">Printing</option>
+            <option value="">Professional Training & Coaching</option>
+            <option value="">Program Development</option>
+            <option value="">Public Policy</option>
+            <option value="">Public Relations & Communications</option>
+            <option value="">Public Safety</option>
+            <option value="">Publishing</option>
+            <option value="">Railroad manufacture</option>
+            <option value="">Ranching</option>
+            <option value="">Real Estate</option>
+            <option value="">Recreational Facilities & Services</option>
+            <option value="">Religious Institutions</option>
+            <option value="">Renewable & Environment</option>
+            <option value="">Research</option>
+            <option value="">Restaurants</option>
+            <option value="">Retail</option>
+            <option value="">Security & Investigations</option>
+            <option value="">Semiconductors</option>
+            <option value="">Shipbuilding</option>
+            <option value="">Sporting Goods</option>
+            <option value="">Sports</option>
+            <option value="">Staffing & Recruiting</option>
+            <option value="">Supermarkets</option>
+            <option value="">Telecommunications</option>
+            <option value="">Textiles</option>
+            <option value="">Think tanks</option>
+            <option value="">Tobacco</option>
+            <option value="">Translation & Localization</option>
+            <option value="">Transportation/Trucking/Railroad</option>
+            <option value="">Utilities</option>
+            <option value="">Venture Capital & Private equity</option>
+            <option value="">Veterinary</option>
+            <option value="">Warehousing</option>
+            <option value="">Wholesale</option>
+            <option value="">Wine & Spirits</option>
+            <option value="">Wireless</option>
+            <option value="">Writing & Editing</option>
           </select>
         </div>
       </div>

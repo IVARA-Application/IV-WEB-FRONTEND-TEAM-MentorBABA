@@ -15,8 +15,8 @@ function BabaCubePage() {
           </h1>
         </div>
         <div className="w-3/4 m-auto">
-          <div className="grid xl:grid-cols-4 gap-2 xl:gap-8">
-            <div className="flex xl:col-start-1 xl:col-end-4 w-full">
+          <div className="grid md:grid-cols-3 xl:grid-cols-4 gap-2 xl:gap-8">
+            <div className="flex md:col-start-1 md:col-end-3 xl:col-start-1 xl:col-end-4 w-full">
               <input
                 type="text"
                 placeholder="Search"
@@ -26,14 +26,14 @@ function BabaCubePage() {
                 <i class="fas fa-search"></i>
               </button>
             </div>
-            <button className="text-white md:text-xl text-center bg-gray-700 rounded-xl md:px-12 py-2 md:col-start-4 md:col-end-5 shadow-none">
+            <button className="text-white md:text-xl text-center bg-gray-700 rounded-xl md:px-12 py-2 xl:col-start-4 xl:col-end-5 shadow-none">
               Type
             </button>
           </div>
         </div>
         <div className="flex justify-center mt-8 w-3/4 m-auto">
           <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
-            <div className="md:flex col-start-1 col-end-2 xl:col-start-1 xl:col-end-4">
+            <div className="md:flex col-start-1 col-end-2 xl:col-start-1 xl:col-end-4 w-full">
               <img className="w-full rounded" src={img} alt="" />
               <div className="startup rounded md:rounded-r-2xl text-xl md:text-2xl flex justify-center items-center">
                 <h1>Get Incubated Now with MentorBaba</h1>

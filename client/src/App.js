@@ -56,16 +56,16 @@ function App() {
           <Route exact path="/EntrepreneurNews">
             <EntrepreneurNews />
           </Route>
-          <Route exact path="/BabaStart">
+          <Route exact path="/BabaStartPage">
             <BabaStartPage />
           </Route>
-          <Route exact path="/BabaCube">
+          <Route exact path="/BabaCubePage">
             <BabaCubePage />
           </Route>
-          <Route exact path="/BabaValuator">
+          <Route exact path="/BabaValuatorPage">
             <BabaValuatorPage />
           </Route>
-          <Route exact path="/BabaInc">
+          <Route exact path="/BabaIncPage">
             <BabaIncPage />
           </Route>
           {/* <SignIn />

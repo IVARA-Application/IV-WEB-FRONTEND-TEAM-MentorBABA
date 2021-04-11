@@ -17,7 +17,7 @@ function BabaNews() {
         </p>
       </div>
       <span className="left hidden xl:block min-h-screen"></span>
-      <span className="right hidden py xl:block min-h-screen"></span>
+      <span className="right hidden xl:block min-h-screen"></span>
       <div className="flex gap-8 justify-evenly xl:pt-20 flex-wrap space-y-2 py-4">
         <Link to="/StartupNews">
           <div className="flex flex-col justify-center items-center bg-white card">

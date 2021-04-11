@@ -9,6 +9,7 @@ import KnowYourBaba from "./KnowYourBaba";
 import BabaInc from "./BabaInc";
 import MentorBaba from "./MentorBaba";
 import Entrepreneurs from "./Entrepreneurs";
+import BabaPsy from "./BabaPsy";
 import BabaNews from "./BabaNews";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
@@ -23,6 +24,7 @@ function HomeComp() {
       <BabaNews />
       <BabaStart />
       <BabaCube />
+      <BabaPsy />
       <BabaValuator />
       <BabaInc />
       <ContactUs />

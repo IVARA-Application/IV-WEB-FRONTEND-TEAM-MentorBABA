@@ -103,7 +103,13 @@ function BabaIncPage() {
           </div>
         </div>
       </div>
-      <button className="bg-white rounded-2xl p-2 px-8 mb-4 text-xl">
+      <button
+        className="bg-white rounded-2xl p-2 px-8 mb-4 text-xl"
+        onClick={() => {
+          window.location.href =
+            "https://docs.google.com/forms/d/e/1FAIpQLSfPEHdW4pLsNz9AvgSkeaPF8CQ5spa9lA5hpyCkWLiRV4DNog/viewform?usp=sf_link";
+        }}
+      >
         Apply Here
       </button>
     </div>

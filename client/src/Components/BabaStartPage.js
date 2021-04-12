@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../img/pageimg.png";
+import img from "../img/groww.jpeg";
 import zomato from "../img/Zomato.png";
 import swiggy from "../img/Swiggy.png";
 import dunzo from "../img/Dunzo.png";
@@ -85,7 +85,7 @@ function BabaStartPage() {
       <div className="flex justify-center mt-8 w-3/4 m-auto">
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-8 w-full">
           <div className="md:flex col-start-1 col-end-2 xl:col-start-1 xl:col-end-4">
-            <img className="w-full rounded" src={img} alt="" />
+            <img className="rounded" src={img} alt="" width="500rem" />
             <div className="startup rounded md:rounded-r-2xl text-xl md:text-2xl flex justify-center items-center">
               <h1 className="p-2">StartUp of the Week</h1>
             </div>

@@ -26,6 +26,7 @@ import BabaCubePage from "./Components/BabaCubePage";
 import BabaValuatorPage from "./Components/BabaValuatorPage";
 import BabaIncPage from "./Components/BabaIncPage";
 import ThirdPartyLogin from "./Components/ThirdPartyLogin";
+import BabaPsy from "./Components/HomeRoute/BabaPsy";
 
 function App() {
   return (
@@ -56,16 +57,16 @@ function App() {
           <Route exact path="/EntrepreneurNews">
             <EntrepreneurNews />
           </Route>
-          <Route exact path="/BabaStartPage">
+          <Route exact path="/BabaStart">
             <BabaStartPage />
           </Route>
-          <Route exact path="/BabaCubePage">
+          <Route exact path="/BabaCube">
             <BabaCubePage />
           </Route>
-          <Route exact path="/BabaValuatorPage">
+          <Route exact path="/BabaValuator">
             <BabaValuatorPage />
           </Route>
-          <Route exact path="/BabaIncPage">
+          <Route exact path="/BabaInc">
             <BabaIncPage />
           </Route>
           {/* <SignIn />

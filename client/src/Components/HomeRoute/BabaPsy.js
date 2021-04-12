@@ -1,6 +1,6 @@
 import React from "react";
 import img from "../../img/blogs.png";
-import circle from "../../img/circle.png";
+import kd from "../../img/kd.jpeg";
 
 function BabaPsy() {
   return (
@@ -19,12 +19,17 @@ function BabaPsy() {
             </p>
           </div>
 
-          <div className="relative order-2 bg-blue-700 py-12 col-start-4 col-end-6 xl:col-start-5 xl:col-end-6 rounded-xl">
+          <div
+            className="relative order-2 bg-blue-700 py-12 col-start-4 col-end-6 xl:col-start-5 xl:col-end-6 rounded-xl cursor-pointer"
+            onClick={() => {
+              window.location.href = "https://www.healmymind.in";
+            }}
+          >
             <a href="https://www.healmymind.in/" className="lg:ml-20">
               <p className="p-2 text-white text-center mx-8 text-xl pb-4">
-                Book your free session today!
+                Book your <b>free</b> session today!
               </p>
-              <span className="absolute bg-gray-200 rounded-b w-full text-center text-black bottom-0 p-2">
+              <span className="absolute bg-gray-200 rounded-b w-full text-center text-black bottom-0 p-2 font-bold">
                 Apply Here
               </span>
             </a>
@@ -39,14 +44,27 @@ function BabaPsy() {
             <img src={img} alt="" />
           </div>
           <div className="col-start-4 py-2 order-3 col-end-6 row-start-2 row-end-3 flex bg-gray-100 rounded-xl">
-            <div className="self-center p-2 px-4">
-              <img src={circle} alt="" />
+            <div className="self-center py-2">
+              <img src={kd} alt="" className="rounded-full w-9/12 mx-auto" />
             </div>
             <div className="flex-1 self-center p-4 lg:p-2 order-3">
               <h1>
-                <span> Our Conunsellor</span>
+                <span>
+                  {" "}
+                  Kritika Dwivedi
+                  <br />
+                  Pre-Licensed Professional, PsyD
+                </span>
               </h1>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <p>
+                Dr. Dwivedi values the opportunity to provide therapy to diverse
+                populations. Her practice maintains a commitment to
+                multicultural humility and social justice consciousness, both
+                within herself and towards others. Dr. Dwivedi practices from a
+                relational perspective meaning that she highlights the
+                importance of client and therapist working as a team to
+                understand the client and their world.
+              </p>
             </div>
           </div>
         </div>

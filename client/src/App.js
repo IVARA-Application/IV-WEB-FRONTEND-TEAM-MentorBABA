@@ -1,19 +1,3 @@
-// import BabaValuatorPage from "./Components/BabaValuatorPage";
-// import BabaStartPage from "./Components/BabaNewsPage";
-// import BabaCubePage from "./Components/BabaCubePage";
-
-// import SignIn from "./Components/SignIn";
-// import CreateAccount from "./Components/CreateAccount";
-
-// import BabaBlogs from "./Components/BabaBlogs";
-// import StartupNews from "./Components/StartupNews";
-// import EntrepreneurNews from "./Components/EntrepreneurNews";
-
-// import StartupName from "./Components/StartupName";
-// import IncubatorName from "./Components/IncubatorName";
-// import BabaIncPage from "./Components/BabaIncPage";
-// import BabaPsy from "./Components/BabaPsy";
-
 import HomeComp from "./Components/HomeRoute";
 import LoginComp from "./Components/LoginRoute";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -26,7 +10,11 @@ import BabaCubePage from "./Components/BabaCubePage";
 import BabaValuatorPage from "./Components/BabaValuatorPage";
 import BabaIncPage from "./Components/BabaIncPage";
 import ThirdPartyLogin from "./Components/ThirdPartyLogin";
-import BabaPsy from "./Components/HomeRoute/BabaPsy";
+
+import Business from "./Components/Blogs/Business";
+import Objectives from "./Components/Blogs/Objectives";
+import Commerce from "./Components/Blogs/Commerce";
+import Industry from "./Components/Blogs/Industry";
 
 function App() {
   return (
@@ -69,18 +57,18 @@ function App() {
           <Route exact path="/BabaInc">
             <BabaIncPage />
           </Route>
-          {/* <SignIn />
-      <BabaBlogs />
-      <BabaValuatorPage />
-      <BabaStartPage />
-      <BabaCubePage />
-      <CreateAccount />
-      <StartupNews />
-      <StartupName />
-      <IncubatorName />
-      <BabaIncPage />
-      <BabaPsy />
-      <EntrepreneurNews /> */}
+          <Route exact path="/Objectives">
+            <Objectives />
+          </Route>
+          <Route exact path="/Commerce">
+            <Commerce />
+          </Route>
+          <Route exact path="/Industry">
+            <Industry />
+          </Route>
+          <Route exact path="/Business">
+            <Business />
+          </Route>
         </>
       </Switch>
     </BrowserRouter>

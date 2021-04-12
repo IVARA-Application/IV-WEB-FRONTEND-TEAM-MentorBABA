@@ -16,7 +16,7 @@ import NavBar from "./NavBar";
 
 function HomeComp() {
   return (
-    <>
+    <div>
       <NavBar />
       <MentorBaba />
       <Entrepreneurs />
@@ -29,7 +29,7 @@ function HomeComp() {
       <BabaInc />
       <ContactUs />
       <Footer />
-    </>
+    </div>
   );
 }
 

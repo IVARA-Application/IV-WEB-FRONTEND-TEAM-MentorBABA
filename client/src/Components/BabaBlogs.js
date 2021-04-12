@@ -1,5 +1,10 @@
 import React from "react";
-import img from "../img/blogs.png";
+import img1 from "../img/blog1.jpeg";
+import img2 from "../img/blog2.jpeg";
+import img3 from "../img/blog3.jpeg";
+import img4 from "../img/blog4.jpeg";
+
+import { Link } from "react-router-dom";
 
 function BabaBlogs() {
   return (
@@ -39,28 +44,36 @@ function BabaBlogs() {
       <div className="w-3/4 m-auto py-4">
         <div
           className="grid grid-cols-2
-           lg:grid-cols-4"
+           lg:grid-cols-4 gap-2"
         >
-          <img
-            className="lg:col-start-1 lg:col-end-2 w-full"
-            src={img}
-            alt=""
-          />
-          <img
-            className="lg:col-start-2 lg:col-end-3 w-full"
-            src={img}
-            alt=""
-          />
-          <img
-            className="lg:col-start-3 lg:col-end-4 w-full"
-            src={img}
-            alt=""
-          />
-          <img
-            className="lg:col-start-4 lg:col-end-5 w-full"
-            src={img}
-            alt=""
-          />
+          <Link to="/Business">
+            <img
+              className="lg:col-start-1 lg:col-end-2 w-full rounded-lg"
+              src={img1}
+              alt=""
+            />
+          </Link>
+          <Link to="/Objectives">
+            <img
+              className="lg:col-start-2 lg:col-end-3 w-full rounded-lg"
+              src={img2}
+              alt=""
+            />
+          </Link>
+          <Link to="/Commerce">
+            <img
+              className="lg:col-start-3 lg:col-end-4 w-full rounded-lg"
+              src={img3}
+              alt=""
+            />
+          </Link>
+          <Link to="/Industry">
+            <img
+              className="lg:col-start-4 lg:col-end-5 w-full rounded-lg"
+              src={img4}
+              alt=""
+            />
+          </Link>
         </div>
       </div>
     </div>

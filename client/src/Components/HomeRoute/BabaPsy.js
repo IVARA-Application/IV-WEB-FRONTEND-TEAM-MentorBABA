@@ -1,6 +1,10 @@
 import React from "react";
-import img from "../../img/blogs.png";
+import img1 from "../../img/babapsy1.jpeg";
+import img2 from "../../img/babapsy2.jpeg";
+import img3 from "../../img/babapsy3.jpeg";
 import kd from "../../img/kd.jpeg";
+
+import { Link } from "react-router-dom";
 
 function BabaPsy() {
   return (
@@ -35,13 +39,19 @@ function BabaPsy() {
             </a>
           </div>
           <div className="flex order-4 items-center justify-center col-start-1 col-end-2 row-start-2 row-end-3 w-full">
-            <img src={img} alt="" className="" />
+            <a href="https://www.healmymind.in/EssentialsToManage">
+              <img src={img1} alt="" className="" />
+            </a>
           </div>
           <div className="flex order-4 items-center justify-center col-start-2 col-end-3 row-start-2 row-end-3 w-full">
-            <img src={img} alt="" className=" " />
+            <a href="https://www.healmymind.in/HealthyLifestyleOfAStudent">
+              <img src={img2} alt="" className=" " />
+            </a>
           </div>
           <div className="flex order-4 items-center justify-center col-start-3 col-end-4 row-start-2 row-end-3 w-full">
-            <img src={img} alt="" />
+            <a href="https://www.healmymind.in/HowHappyMindCanCreateWonders">
+              <img src={img3} alt="" />
+            </a>
           </div>
           <div className="col-start-4 py-2 order-3 col-end-6 row-start-2 row-end-3 flex bg-gray-100 rounded-xl">
             <div className="self-center py-2">
@@ -72,5 +82,4 @@ function BabaPsy() {
     </div>
   );
 }
-
 export default BabaPsy;

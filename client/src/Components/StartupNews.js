@@ -1,5 +1,10 @@
 import React from "react";
-import img from "../img/post.png";
+import { Link } from "react-router-dom";
+
+import Oyo from "../img/Oyo.jpeg";
+import Swiggy from "../img/Swiggy.jpeg";
+import Ola from "../img/Ola.jpeg";
+import PhonePay from "../img/PhonePay.jpeg";
 
 function StartupNews() {
   return (
@@ -36,28 +41,36 @@ function StartupNews() {
       <div className="w-3/4 m-auto py-4">
         <div
           className="grid grid-cols-2
-           lg:grid-cols-4"
+           lg:grid-cols-4 gap-4"
         >
-          <img
-            className="lg:col-start-1 lg:col-end-2 w-full"
-            src={img}
-            alt=""
-          />
-          <img
-            className="lg:col-start-2 lg:col-end-3 w-full"
-            src={img}
-            alt=""
-          />
-          <img
-            className="lg:col-start-3 lg:col-end-4 w-full"
-            src={img}
-            alt=""
-          />
-          <img
-            className="lg:col-start-4 lg:col-end-5 w-full"
-            src={img}
-            alt=""
-          />
+          <Link to="/Oyo">
+            <img
+              className="lg:col-start-1 lg:col-end-2 w-full shadow-lg"
+              src={Oyo}
+              alt=""
+            />
+          </Link>
+          <Link to="/Swiggy">
+            <img
+              className="lg:col-start-2 lg:col-end-3 w-full shadow-lg"
+              src={Swiggy}
+              alt=""
+            />
+          </Link>
+          <Link to="/Ola">
+            <img
+              className="lg:col-start-3 lg:col-end-4 w-full shadow-lg"
+              src={Ola}
+              alt=""
+            />
+          </Link>
+          <Link to="/PhonePay">
+            <img
+              className="lg:col-start-4 lg:col-end-5 w-full shadow-lg"
+              src={PhonePay}
+              alt=""
+            />
+          </Link>
         </div>
       </div>
     </div>

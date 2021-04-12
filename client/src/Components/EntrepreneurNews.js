@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import oyo from "../img/OyoInfo.jpeg";
+import cred from "../img/Cred.jpeg";
 import img from "../img/post.png";
 
 function EntrepreneurNews() {
@@ -36,25 +39,29 @@ function EntrepreneurNews() {
       <div className="w-3/4 m-auto py-4">
         <div
           className="grid grid-cols-2
-           lg:grid-cols-4"
+           lg:grid-cols-4 gap-2"
         >
+          <Link to="/OyoInfo">
+            <img
+              className="lg:col-start-1 lg:col-end-2 w-full rounded-lg"
+              src={oyo}
+              alt=""
+            />
+          </Link>
+          <Link to="/Cred">
+            <img
+              className="lg:col-start-2 lg:col-end-3 w-full rounded-lg"
+              src={cred}
+              alt=""
+            />
+          </Link>
           <img
-            className="lg:col-start-1 lg:col-end-2 w-full"
+            className="lg:col-start-3 lg:col-end-4 w-full rounded-lg"
             src={img}
             alt=""
           />
           <img
-            className="lg:col-start-2 lg:col-end-3 w-full"
-            src={img}
-            alt=""
-          />
-          <img
-            className="lg:col-start-3 lg:col-end-4 w-full"
-            src={img}
-            alt=""
-          />
-          <img
-            className="lg:col-start-4 lg:col-end-5 w-full"
+            className="lg:col-start-4 lg:col-end-5 w-full rounded-lg"
             src={img}
             alt=""
           />

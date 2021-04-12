@@ -15,6 +15,12 @@ import Business from "./Components/Blogs/Business";
 import Objectives from "./Components/Blogs/Objectives";
 import Commerce from "./Components/Blogs/Commerce";
 import Industry from "./Components/Blogs/Industry";
+import Swiggy from "./Components/StartUpNews/Swiggy";
+import Oyo from "./Components/StartUpNews/Oyo";
+import Ola from "./Components/StartUpNews/Ola";
+import PhonePay from "./Components/StartUpNews/PhonePay";
+import OyoInfo from "./Components/EntrepreneurNews/OyoInfo";
+import Cred from "./Components/EntrepreneurNews/Cred";
 
 function App() {
   return (
@@ -68,6 +74,24 @@ function App() {
           </Route>
           <Route exact path="/Business">
             <Business />
+          </Route>
+          <Route exact path="/Oyo">
+            <Oyo />
+          </Route>
+          <Route exact path="/Swiggy">
+            <Swiggy />
+          </Route>
+          <Route exact path="/Ola">
+            <Ola />
+          </Route>
+          <Route exact path="/PhonePay">
+            <PhonePay />
+          </Route>
+          <Route exact path="/OyoInfo">
+            <OyoInfo />
+          </Route>
+          <Route exact path="/Cred">
+            <Cred />
           </Route>
         </>
       </Switch>

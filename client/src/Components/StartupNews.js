@@ -45,28 +45,28 @@ function StartupNews() {
         >
           <Link to="/Oyo">
             <img
-              className="lg:col-start-1 lg:col-end-2 w-full shadow-lg"
+              className="lg:col-start-1 lg:col-end-2 w-full shadow-lg hover:shadow-2xl"
               src={Oyo}
               alt=""
             />
           </Link>
           <Link to="/Swiggy">
             <img
-              className="lg:col-start-2 lg:col-end-3 w-full shadow-lg"
+              className="lg:col-start-2 lg:col-end-3 w-full shadow-lg hover:shadow-2xl"
               src={Swiggy}
               alt=""
             />
           </Link>
           <Link to="/Ola">
             <img
-              className="lg:col-start-3 lg:col-end-4 w-full shadow-lg"
+              className="lg:col-start-3 lg:col-end-4 w-full shadow-lg hover:shadow-2xl"
               src={Ola}
               alt=""
             />
           </Link>
           <Link to="/PhonePay">
             <img
-              className="lg:col-start-4 lg:col-end-5 w-full shadow-lg"
+              className="lg:col-start-4 lg:col-end-5 w-full shadow-lg hover:shadow-2xl"
               src={PhonePay}
               alt=""
             />

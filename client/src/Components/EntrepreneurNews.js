@@ -55,16 +55,20 @@ function EntrepreneurNews() {
               alt=""
             />
           </Link>
-          <img
-            className="lg:col-start-3 lg:col-end-4 w-full rounded-lg"
-            src={img}
-            alt=""
-          />
-          <img
-            className="lg:col-start-4 lg:col-end-5 w-full rounded-lg"
-            src={img}
-            alt=""
-          />
+          <Link to="/OyoInfo">
+            <img
+              className="lg:col-start-1 lg:col-end-2 w-full rounded-lg"
+              src={oyo}
+              alt=""
+            />
+          </Link>
+          <Link to="/Cred">
+            <img
+              className="lg:col-start-2 lg:col-end-3 w-full rounded-lg"
+              src={cred}
+              alt=""
+            />
+          </Link>
         </div>
       </div>
     </div>

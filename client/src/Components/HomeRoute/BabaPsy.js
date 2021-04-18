@@ -55,25 +55,24 @@ function BabaPsy() {
           </div>
           <div className="col-start-4 py-2 order-3 col-end-6 row-start-2 row-end-3 flex bg-gray-100 rounded-xl">
             <div className="self-center py-2">
-              <img src={kd} alt="" className="rounded-full w-9/12 mx-auto" />
+              <img src={kd} alt="" className="rounded-md w-2/4 mx-auto" />
             </div>
-            <div className="flex-1 self-center p-4 lg:p-2 order-3">
+            <div className="self-center p-2 lg:p-2 order-3">
               <h1>
                 <span>
-                  {" "}
                   Kritika Dwivedi
                   <br />
                   Pre-Licensed Professional, PsyD
                 </span>
               </h1>
               <p>
-                Dr. Dwivedi values the opportunity to provide therapy to diverse
+                {/* Dr. Dwivedi values the opportunity to provide therapy to diverse
                 populations. Her practice maintains a commitment to
                 multicultural humility and social justice consciousness, both
                 within herself and towards others. Dr. Dwivedi practices from a
                 relational perspective meaning that she highlights the
                 importance of client and therapist working as a team to
-                understand the client and their world.
+                understand the client and their world. */}
               </p>
             </div>
           </div>

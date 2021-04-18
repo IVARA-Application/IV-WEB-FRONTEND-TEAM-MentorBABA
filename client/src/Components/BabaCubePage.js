@@ -4,10 +4,12 @@ import icreate from "../img/Icreate.png";
 import angelprime from "../img/angelprime.png";
 import ui from "../img/Uincept.png";
 import hatch from "../img/Hatch.png";
+import NavBar from "../Components/HomeRoute/NavBar";
 
 function BabaCubePage() {
   return (
     <div>
+      <NavBar />
       <div className="bsp-container lg:min-h-screen">
         <div>
           <h1 className="text-3xl md:text-5xl text-center py-8">

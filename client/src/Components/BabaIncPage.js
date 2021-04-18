@@ -1,8 +1,10 @@
 import React from "react";
+import NavBar from "../Components/HomeRoute/NavBar";
 
 function BabaIncPage() {
   return (
     <div className="babainc-container flex flex-col items-center">
+      <NavBar />
       <div className="text-white p-4 flex flex-col items-center text-center">
         <h1 className="text-5xl">
           Baba<span className="text-black">Inc</span>

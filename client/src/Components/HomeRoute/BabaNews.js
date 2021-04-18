@@ -10,7 +10,7 @@ function BabaNews() {
     <div className="news-container py-2 pb-6 px-8 lg:px-28 bg-blue-200 xl:bg-opacity-0">
       <div className="flex flex-wrap justify-between items-center">
         <h1 className=" text-4xl lg:text-7xl lg:py-8 tracking-wide">
-          <span>Baba</span> News
+          <span>Baba</span>News
         </h1>
         <p className="text-2xl lg:text-4xl text-white tracking-widest">
           News that matters!

@@ -3,12 +3,13 @@ import img1 from "../img/blog1.jpeg";
 import img2 from "../img/blog2.jpeg";
 import img3 from "../img/blog3.jpeg";
 import img4 from "../img/blog4.jpeg";
-
+import NavBar from "../Components/HomeRoute/NavBar";
 import { Link } from "react-router-dom";
 
 function BabaBlogs() {
   return (
     <div className="min-h-screen">
+      <NavBar />
       <div>
         <h1 className="text-5xl text-center py-8">
           <span>Baba</span>Blogs

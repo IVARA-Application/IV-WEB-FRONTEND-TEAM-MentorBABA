@@ -13,22 +13,22 @@ export const SidebarData = [
   },
   {
     title: "BabaStart",
-    path: "/BabaStartPage",
+    path: "/BabaStart",
     cName: "nav-text",
   },
   {
     title: "BabaCube",
-    path: "/BabaCubePage",
+    path: "/BabaCube",
     cName: "nav-text",
   },
   {
     title: "BabaValuator",
-    path: "/BabaValuatorPage",
+    path: "/BabaValuator",
     cName: "nav-text",
   },
   {
     title: "BabaINC",
-    path: "/BabaIncPage",
+    path: "/BabaInc",
     cName: "nav-text",
   },
 ];

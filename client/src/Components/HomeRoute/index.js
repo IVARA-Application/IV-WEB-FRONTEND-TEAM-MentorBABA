@@ -13,11 +13,12 @@ import BabaPsy from "./BabaPsy";
 import BabaNews from "./BabaNews";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
+import ChatBox from "../ChatBox/DashBoard";
 
 function HomeComp() {
   return (
     <div>
-      <NavBar />
+      {/* <NavBar />
       <MentorBaba />
       <Entrepreneurs />
       <KnowYourBaba />
@@ -28,7 +29,8 @@ function HomeComp() {
       <BabaValuator />
       <BabaInc />
       <ContactUs />
-      <Footer />
+      <Footer /> */}
+      <ChatBox />
     </div>
   );
 }

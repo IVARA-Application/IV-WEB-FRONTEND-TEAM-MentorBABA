@@ -13,7 +13,7 @@ import BabaPsy from "./BabaPsy";
 import BabaNews from "./BabaNews";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
-import ChatBox from "../ChatBox/DashBoard";
+import ChatBox from "../ChatBox/Connections";
 
 function HomeComp() {
   return (

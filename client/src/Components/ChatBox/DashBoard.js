@@ -12,7 +12,7 @@ import plcehld from "../../img/placeholder.png";
 function DashBoard() {
   return (
     <div className="bg-indigo-600">
-      <div className="flex p-2 gap-2 items-center justify-center h-screen">
+      <div className="flex p-4 gap-4 items-center justify-center h-screen">
         {/* left side */}
         <div className="md:w-4/5 bg-white flex flex-col rounded-md h-full">
           <div className="flex py-4 gap-5 md:w-4/5 mx-auto">
@@ -25,7 +25,7 @@ function DashBoard() {
                 id=""
                 className="w-full rounded-l-lg bg-gray-200"
               />
-              <button className="px-6 rounded-r-lg">
+              <button className="px-6 rounded-r-lg bg-indigo-600">
                 <Ficons.FiSearch className="text-2xl text-white" />
               </button>
             </div>
@@ -108,8 +108,8 @@ function DashBoard() {
             </div>
             {/* Bottom button */}
             <div className="my-8">
-              <button className="text-white my-12 px-2 rounded-md py-2 text-2xl">
-                Learn with IVARA
+              <button className="text-white my-12 px-2 bg-indigo-600 rounded-md py-2 text-2xl">
+                Learn with IVARA!
               </button>
             </div>
           </div>

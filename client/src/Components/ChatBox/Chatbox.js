@@ -8,8 +8,8 @@ import { BsPeopleCircle } from "react-icons/bs";
 
 function Chatbox() {
   return (
-    <div className="bg-gray-600">
-      <div className="Chatbox-container flex gap-2 p-2 h-screen">
+    <div className="bg-indigo-400">
+      <div className="Chatbox-container flex gap-2 p-4 h-screen">
         {/* Left Side */}
         <div className="bg-gray-200 hidden md:block left-side-chatbox w-2/5 rounded-md overflow-y-auto">
           <div className="left-top-bar bg-white border-b-2 border-gray-400 p-2 py-4 flex items-center justify-between">

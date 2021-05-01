@@ -18,7 +18,7 @@ import ChatBox from "../ChatBox/DashBoard";
 function HomeComp() {
   return (
     <div>
-      {/* <NavBar />
+      <NavBar />
       <MentorBaba />
       <Entrepreneurs />
       <KnowYourBaba />
@@ -29,8 +29,7 @@ function HomeComp() {
       <BabaValuator />
       <BabaInc />
       <ContactUs />
-      <Footer /> */}
-      <ChatBox />
+      <Footer />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 function SignIn() {
   const [disabled, setDisabled] = useState("");
+  const [invalidCreds, setInvalidCreds] = useState("hidden");
   const [message, setMessage] = useState("Sign In");
   async function handleLoginSubmission(event) {
     event.preventDefault();
@@ -16,9 +17,9 @@ function SignIn() {
     console.log("Sending...");
     try {
       const response = await axios.post(
-        "https://vkrx5omg34.execute-api.ap-south-1.amazonaws.com/latest/login",
+        "https://1qfcnu37he.execute-api.ap-south-1.amazonaws.com/latest/user/login",
         {
-          email: document.getElementById("email-input").value,
+          username: document.getElementById("email-input").value,
           password: document.getElementById("password-input").value,
         },
         {
@@ -30,6 +31,11 @@ function SignIn() {
           },
         }
       );
+      if (response.status === 404 || response.status === 403) {
+        setInvalidCreds("block");
+        setDisabled("");
+        return;
+      }
       if (!response.data.success) throw Error(response.data.message);
       window.localStorage.setItem("token", response.data.token);
       alert("You are logged in. Welcome to MentorBaba!");
@@ -56,7 +62,12 @@ function SignIn() {
           </a>
           <img className="object-contain opacity-25" src={fb} alt="Facebook" />
         </div>
-        <p className="py-4 lg:py-10 text-xl">or use your email account:</p>
+        <p className="py-4 lg:py-10 text-xl text-gray-600">
+          or use your email account:
+        </p>
+        <p className={["text-red-600", invalidCreds].join(" ")}>
+          Incorrect login credentials
+        </p>
         <form className="lg:py-2 px-8 lg:px-0" id="login-form">
           <input
             className="rounded"
@@ -97,11 +108,6 @@ function SignIn() {
             Sign up
           </button>
         </Link>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
       </div>
     </div>
   );

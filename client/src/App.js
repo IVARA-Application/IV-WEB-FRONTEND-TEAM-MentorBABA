@@ -1,5 +1,4 @@
 import HomeComp from "./Components/HomeRoute";
-import LoginComp from "./Components/LoginRoute";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import CreateAccount from "./Components/CreateAccount";
 import StartupNews from "./Components/StartupNews";
@@ -21,6 +20,7 @@ import Ola from "./Components/StartUpNews/Ola";
 import PhonePay from "./Components/StartUpNews/PhonePay";
 import OyoInfo from "./Components/EntrepreneurNews/OyoInfo";
 import Cred from "./Components/EntrepreneurNews/Cred";
+import LoginPage from "./pages/loginPage";
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
             <ThirdPartyLogin type="google" />
           </Route>
           <Route exact path="/login">
-            <LoginComp />
+            <LoginPage />
           </Route>
           <Route exact path="/CreateAccount">
             <CreateAccount />

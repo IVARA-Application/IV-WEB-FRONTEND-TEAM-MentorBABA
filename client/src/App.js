@@ -1,6 +1,5 @@
 import HomeComp from "./Components/HomeRoute";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import CreateAccount from "./Components/CreateAccount";
 import StartupNews from "./Components/StartupNews";
 import BabaBlogs from "./Components/BabaBlogs";
 import EntrepreneurNews from "./Components/EntrepreneurNews";
@@ -21,6 +20,7 @@ import PhonePay from "./Components/StartUpNews/PhonePay";
 import OyoInfo from "./Components/EntrepreneurNews/OyoInfo";
 import Cred from "./Components/EntrepreneurNews/Cred";
 import LoginPage from "./pages/loginPage";
+import RegisterPage from "./pages/registerPage";
 
 function App() {
   return (
@@ -39,8 +39,8 @@ function App() {
           <Route exact path="/login">
             <LoginPage />
           </Route>
-          <Route exact path="/CreateAccount">
-            <CreateAccount />
+          <Route exact path="/register">
+            <RegisterPage />
           </Route>
           <Route exact path="/StartupNews">
             <StartupNews />

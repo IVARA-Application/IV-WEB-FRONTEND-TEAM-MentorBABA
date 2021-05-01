@@ -262,15 +262,16 @@ select {
   left: 7%;
   background-color: #584efe;
   z-index: -1;
+  size: 10%;
 }
 
 .bv-triangle {
   position: absolute;
   width: 0rem;
   height: 0rem;
-  scale: 35;
+  transform: scale(30);
   top: 70%;
-  right: 15%;
+  right: 18%;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-bottom: 8px solid #584efe;
@@ -338,6 +339,14 @@ select {
   background-color: #584efe;
 }
 
+.babainc-container .nav li {
+  color: white;
+}
+
+.babainc-container .logo {
+  color: white;
+}
+
 .babainc-bottom-container {
   background-color: #fefefe;
 }
@@ -369,4 +378,39 @@ select {
 
 .com li {
   color: black;
+}
+
+/* know your baba imgs */
+
+.kyb1 {
+  position: relative;
+}
+
+.kyb1:hover .overlay {
+  opacity: 0.8;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #536dfe;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
 }

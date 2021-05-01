@@ -9,7 +9,9 @@ function BabaInc() {
         <img className="w-3/4 mt-12 lg:my-20" src={img} alt="" />
       </div>
       <div className="babaCube-right flex flex-col items-center justify-center flex-1">
-        <h1 className="text-4xl md:text-6xl xl:text-8xl">BabaINC</h1>
+        <h1 className="text-4xl md:text-6xl xl:text-8xl">
+          Baba<span className="text-gray-700">INC</span>
+        </h1>
         <p className="text-xl md:text-2xl xl:text-5xl text-center my-4 lg:my-8 text-gray-600">
           Get your company registered & <br /> complete all formalities!
         </p>

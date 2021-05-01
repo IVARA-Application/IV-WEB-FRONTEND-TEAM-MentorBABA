@@ -5,10 +5,12 @@ import Oyo from "../img/Oyo.jpeg";
 import Swiggy from "../img/Swiggy.jpeg";
 import Ola from "../img/Ola.jpeg";
 import PhonePay from "../img/PhonePay.jpeg";
+import NavBar from "../Components/HomeRoute/NavBar";
 
 function StartupNews() {
   return (
     <div className="min-h-full">
+      <NavBar />
       <div>
         <h1 className="text-5xl text-center py-8">
           <span>Startup </span>News

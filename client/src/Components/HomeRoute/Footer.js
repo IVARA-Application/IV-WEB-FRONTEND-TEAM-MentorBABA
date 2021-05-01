@@ -31,7 +31,7 @@ function Footer() {
             Chennai, India
           </p>
         </div>
-        <div className="text-xl lg:text-2xl text-center mt-4 lg:mt-16 flex-1 underline">
+        <div className="text-xl lg:text-2xl text-center mt-4 lg:mt-16 flex-1 underline lg:no-underline">
           <ul className="flex items-center justify-around lg:flex-col lg:justify-center lg:space-y-8">
             <li>
               <a
@@ -43,7 +43,11 @@ function Footer() {
               </a>
             </li>
             <li className="">Blogs</li>
-            <li className="">IVARA</li>
+            <li className="">
+              <a href="https://ivaraedu.com/" className="hover:text-blue-500">
+                IVARA
+              </a>
+            </li>
             <li className="">
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=hello@iventorsinitiatives.com"

@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import oyo from "../img/OyoInfo.jpeg";
 import cred from "../img/Cred.jpeg";
 import img from "../img/post.png";
-
+import NavBar from "../Components/HomeRoute/NavBar";
 function EntrepreneurNews() {
   return (
     <div className="min-h-full">
+      <NavBar />
       <div>
         <h1 className="text-5xl text-center py-8">
           <span>Entrepreneur </span>News

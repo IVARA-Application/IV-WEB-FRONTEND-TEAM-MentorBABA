@@ -43,23 +43,64 @@ function KnowYourBaba() {
         <span className="hidden xl:block line"></span>
         <div className="flex md:flex-row flex-wrap gap-6 items-center justify-center lg:py-8">
           <a href="https://www.linkedin.com/in/dwivedivyansh">
-            <img src={Mentor1} className="object-contain w-48 rounded" alt="" />
+            <div className="kyb1 kybimg">
+              <img
+                src={Mentor1}
+                className="object-contain w-48 rounded"
+                alt=""
+              />
+              <div class="overlay rounded">
+                <div class="text">Divyansh Dwivedi</div>
+              </div>
+            </div>
           </a>
           <a href="https://www.linkedin.com/in/aditi-mishra-b123641a">
-            <img src={Mentor2} className="object-contain w-40 rounded" alt="" />
+            <div className="kyb1 kybimg">
+              <img
+                src={Mentor2}
+                className="object-contain w-40 rounded"
+                alt=""
+              />
+              <div class="overlay rounded">
+                <div class="text">Aditi Mishra</div>
+              </div>
+            </div>
           </a>
           <a href="https://www.linkedin.com/in/tarun-bharadwaj-a83a02172">
-            <img src={Mentor3} className="object-contain w-48 rounded" alt="" />
+            <div className="kyb1 kybimg">
+              <img
+                src={Mentor3}
+                className="object-contain w-48 rounded"
+                alt=""
+              />
+              <div class="overlay rounded">
+                <div class="text">Tarun Bharadwaj</div>
+              </div>
+            </div>
           </a>
           <a href="https://www.linkedin.com/in/barath-kumar-b-09062000">
-            <img
-              src={Mentor4}
-              className="object-contain w-32 h-48 rounded"
-              alt=""
-            />
+            <div className="kyb1 kybimg">
+              <img
+                src={Mentor4}
+                className="object-contain w-32 h-48 rounded"
+                alt=""
+              />
+              <div class="overlay rounded">
+                <div class="text">Barath Kumar</div>
+              </div>
+            </div>
           </a>
           <a href="https://www.linkedin.com/in/tanishk-singh-722ab21b3">
-            <img src={Mentor6} className="object-contain w-48 rounded" alt="" />
+            <div className="kyb1 kybimg">
+              <img
+                src={Mentor6}
+                className="object-contain w-48 rounded"
+                alt=""
+              />
+              <div class="overlay rounded">
+                <div class="text">Tanishk Singh</div>
+              </div>
+            </div>
           </a>
         </div>
       </div>

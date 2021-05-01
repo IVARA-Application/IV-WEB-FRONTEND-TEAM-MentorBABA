@@ -4,10 +4,12 @@ import zomato from "../img/Zomato.png";
 import swiggy from "../img/Swiggy.png";
 import dunzo from "../img/Dunzo.png";
 import search from "../img/Search.png";
+import NavBar from "../Components/HomeRoute/NavBar";
 
 function BabaStartPage() {
   return (
     <div className="bsp-container lg:min-h-screen">
+      <NavBar />
       <div>
         <h1 className="text-3xl md:text-5xl text-center py-8">
           <span>Baba</span>Start

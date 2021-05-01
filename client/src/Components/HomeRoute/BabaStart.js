@@ -6,7 +6,9 @@ function BabaStart() {
   return (
     <div className="flex flex-col-reverse lg:flex-row lg:py-12">
       <div className="babaStart-left flex flex-col items-center flex-1">
-        <h1 className="text-4xl md:text-6xl xl:text-8xl lg:mt-48">BabaStart</h1>
+        <h1 className="text-4xl md:text-6xl xl:text-8xl lg:mt-48">
+          Baba<span className="text-gray-700">Start</span>
+        </h1>
         <p className=" text-lg md:text-2xl xl:text-5xl text-left my-4 lg:my-8 text-gray-600">
           KNOW ABOUT RECENT <br /> STARTUPS IN INDIA.
         </p>

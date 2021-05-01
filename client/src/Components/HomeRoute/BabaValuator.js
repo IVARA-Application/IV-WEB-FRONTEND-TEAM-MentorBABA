@@ -7,9 +7,9 @@ function BabaStart() {
     <div className="flex flex-col-reverse lg:flex-row lg:py-12">
       <div className="babaValuator-left flex flex-col items-center flex-1">
         <h1 className="text-4xl md:text-6xl xl:text-8xl lg:mt-48">
-          BabaValuator
+          Baba<span className="text-gray-700">Valuator</span>
         </h1>
-        <p className="text-lg md:text-2xl xl:text-5xl my-4 lg:my-8 text-gray-600">
+        <p className="text-lg md:text-2xl xl:text-5xl my-4 lg:my-8 text-center text-gray-600">
           KNOW THE WORTH OF YOUR <br /> STARTUP!
         </p>
         <p className="text-md mx-10 md:mx-0 lg:text-xl text-black text-center my-2 md:my-4 md:mb-12">

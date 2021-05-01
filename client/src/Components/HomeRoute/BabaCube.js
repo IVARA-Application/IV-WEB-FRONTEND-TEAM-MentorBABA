@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 
 function BabaStart() {
   return (
-    <div className="flex flex-col lg:flex-row lg:py-12">
+    <div className="flex flex-col lg:flex-row lg:py-12 px-2">
       <div className="babaCube-left flex flex-1 flex-col justify-center items-center">
         <img className="w-3/4 mt-12 lg:my-20" src={img} alt="" />
       </div>
       <div className="babaCube-right flex flex-col items-center justify-center flex-1">
-        <h1 className="text-4xl md:text-6xl xl:text-8xl">BabaCube</h1>
+        <h1 className="text-4xl md:text-6xl xl:text-8xl">
+          Baba<span className="text-gray-700">Cube</span>
+        </h1>
         <p className="text-xl md:text-2xl xl:text-5xl text-left my-4 lg:my-8 text-gray-600">
           APPLY TO TOP INCUBATORS <br /> AND ACCELERATORS NOW!
         </p>

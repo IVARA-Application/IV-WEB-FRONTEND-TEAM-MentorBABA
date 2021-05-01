@@ -1,0 +1,10 @@
+{
+  "lambda": {
+    "role": "mentorbaba-executor",
+    "name": "mentorbaba",
+    "region": "ap-south-1"
+  },
+  "api": {
+    "id": "1qfcnu37he"
+  }
+}

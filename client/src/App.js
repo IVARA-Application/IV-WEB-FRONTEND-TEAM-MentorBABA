@@ -21,6 +21,8 @@ import OyoInfo from "./Components/EntrepreneurNews/OyoInfo";
 import Cred from "./Components/EntrepreneurNews/Cred";
 import LoginPage from "./pages/loginPage";
 import RegisterPage from "./pages/registerPage";
+import ConnectionPage from "./pages/connectionPage";
+import MakeProfilePage from "./pages/makeProfilePage";
 
 function App() {
   return (
@@ -92,6 +94,12 @@ function App() {
           </Route>
           <Route exact path="/Cred">
             <Cred />
+          </Route>
+          <Route exact path="/connections">
+            <ConnectionPage />
+          </Route>
+          <Route exact path="/makeprofile">
+            <MakeProfilePage />
           </Route>
         </>
       </Switch>

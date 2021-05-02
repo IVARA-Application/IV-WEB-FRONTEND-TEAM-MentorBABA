@@ -2,7 +2,7 @@ import React from "react";
 
 import { BsPeopleCircle } from "react-icons/bs";
 
-function Connections() {
+export default function Connections() {
   return (
     <div className="bg-indigo-600">
       <div className="p-4 flex flex-col items-center h-screen">
@@ -53,5 +53,3 @@ function Connections() {
     </div>
   );
 }
-
-export default Connections;

@@ -34,12 +34,12 @@ function SignIn() {
       if (response.status === 404 || response.status === 403) {
         setInvalidCreds("block");
         setDisabled("");
+        setMessage("Sign In");
         return;
       }
       if (!response.data.success) throw Error(response.data.message);
       window.localStorage.setItem("token", response.data.token);
-      alert("You are logged in. Welcome to MentorBaba!");
-      window.location.replace("/");
+      window.location.href = "/connections";
     } catch (error) {
       console.error(error);
       alert(error.message);

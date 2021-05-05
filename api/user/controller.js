@@ -123,7 +123,7 @@ module.exports = () => {
     validateSchema(newUserRegistrationSchema, "body"),
     userRegistrationController
   );
-  app.put("/update", updateUserProfileController);
+  app.put("/update", authenticateUser, updateUserProfileController);
 
   return app;
 };

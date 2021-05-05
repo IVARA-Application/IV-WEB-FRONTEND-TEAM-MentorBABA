@@ -5,6 +5,13 @@ import google from "../../img/google.png";
 import linkedin from "../../img/linkedin.png";
 import { Link } from "react-router-dom";
 
+const occupationValues = [
+  "Investor",
+  "Founder",
+  "Working Professional",
+  "Student",
+];
+
 export default function SignUp() {
   const [disabled, setDisabled] = useState("");
   const [errorText, setErrorText] = useState("Unknown");
@@ -102,10 +109,9 @@ export default function SignUp() {
               className="py-2 text-gray-500 text-xl border-none w-full my-3"
               id="occupation-input"
             >
-              <option defaultValue>Occupation</option>
-              <option value="teacher">Teacher</option>
-              <option value="student">Student</option>
-              <option value="entrepreneur">Entrepreneur</option>
+              {occupationValues.map((element) => {
+                return <option value={element.toLowerCase()}>{element}</option>;
+              })}
             </select>
             <input
               type="text"

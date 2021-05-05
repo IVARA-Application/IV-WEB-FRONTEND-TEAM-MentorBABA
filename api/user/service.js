@@ -127,7 +127,7 @@ const updateUserData = async (
     const exisitngUser = await (await connect())
       .collection("users")
       .findOne({ username });
-    if ((exisitngUser -= null))
+    if (exisitngUser == null)
       throw {
         custom: true,
         code: 404,

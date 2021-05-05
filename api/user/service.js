@@ -62,7 +62,14 @@ const fetchUserProfile = async (email) => {
   }
 };
 
-const addNewUser = async (email, password, username, occupation, phone) => {
+const addNewUser = async (
+  name,
+  email,
+  password,
+  username,
+  occupation,
+  phone
+) => {
   try {
     const exisitngUser = await (await connect())
       .collection("users")
@@ -75,11 +82,14 @@ const addNewUser = async (email, password, username, occupation, phone) => {
       };
     const hash = await argon2.hash(password);
     await (await connect()).collection("users").insertOne({
+      name,
       email,
       hash,
       username,
       occupation,
       phone,
+      profilePic:
+        "https://mentorbaba.s3.ap-south-1.amazonaws.com/sampleUser.jpg",
     });
   } catch (error) {
     await disconnect();
@@ -87,4 +97,33 @@ const addNewUser = async (email, password, username, occupation, phone) => {
   }
 };
 
-module.exports = { verifyUserLogin, addNewUser, fetchUserProfile };
+const updateUserData = async (name, username, occupation, profilePic) => {
+  try {
+    const exisitngUser = await (await connect())
+      .collection("users")
+      .findOne({ username });
+    if ((exisitngUser -= null))
+      throw {
+        custom: true,
+        code: 404,
+        message: `User ${username} does not exist in the database.`,
+      };
+    await (await connect())
+      .collection("users")
+      .updateOne(
+        { username },
+        { $set: { name, email, occupation, profilePic } }
+      );
+    await await disconnect();
+  } catch (error) {
+    await disconnect();
+    throw error;
+  }
+};
+
+module.exports = {
+  verifyUserLogin,
+  addNewUser,
+  updateUserData,
+  fetchUserProfile,
+};

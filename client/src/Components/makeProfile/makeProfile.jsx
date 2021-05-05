@@ -4,9 +4,16 @@ const userData = {
   name: "Aniruddha Chatterjee",
   occupation: "Investor",
   email: "ruddha.mine@gmail.com",
-  phone: "7980895983",
   profilePic: "https://mentorbaba.s3.ap-south-1.amazonaws.com/sampleUser.jpg",
+  occupation: "student",
 };
+
+const occupationValues = [
+  "Investor",
+  "Founder",
+  "Working Professional",
+  "Student",
+];
 
 export default function MakeProfile() {
   return (
@@ -54,15 +61,25 @@ export default function MakeProfile() {
             />
           </div>
           <label className="text-center block mx-auto mt-5 text-lg">
-            Phone
+            Occupation
           </label>
           <div className="border border-black w-4/5 md:w-3/5 lg:w-2/5 mx-auto rounded">
-            <input
-              className=" block w-full mx-auto text-center text-base md:text-xl"
-              value={userData.phone}
-              type="text"
-              aria-label="Name"
-            />
+            <select
+              name="occupation"
+              className="text-center w-full text-base md:text-xl bg-white"
+              style={{ textAlignLast: "center", padding: "8px 12px" }}
+            >
+              {occupationValues.map((element) => {
+                return (
+                  <option
+                    value={element.toLowerCase()}
+                    selected={element.toLowerCase() === userData.occupation}
+                  >
+                    {element}
+                  </option>
+                );
+              })}
+            </select>
           </div>
           <button className="mx-auto block my-10 p-3 text-xl text-white rounded-lg">
             Continue

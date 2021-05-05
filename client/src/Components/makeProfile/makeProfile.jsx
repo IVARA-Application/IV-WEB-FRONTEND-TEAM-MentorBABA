@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const userData = {
   name: "Aniruddha Chatterjee",
@@ -16,6 +16,17 @@ const occupationValues = [
 ];
 
 export default function MakeProfile() {
+  const [buttonText, setButtonText] = useState("Continue");
+
+  function handleProfileUpdate() {
+    const name = document.getElementById("user-name").value;
+    const email = document.getElementById("user-email").value;
+    const occupation = document.getElementById("user-occupation").value;
+    console.log(name, email, occupation);
+    setButtonText("Please Wait");
+    alert("Check console");
+  }
+
   return (
     <div className="bg-indigo-600">
       <div className="p-4 flex flex-col items-center min-h-screen">
@@ -47,6 +58,8 @@ export default function MakeProfile() {
               value={userData.name}
               type="text"
               aria-label="Name"
+              name="name"
+              id="user-name"
             />
           </div>
           <label className="text-center block mx-auto mt-5 text-lg">
@@ -58,6 +71,8 @@ export default function MakeProfile() {
               value={userData.email}
               type="text"
               aria-label="Name"
+              name="email"
+              id="user-email"
             />
           </div>
           <label className="text-center block mx-auto mt-5 text-lg">
@@ -68,6 +83,7 @@ export default function MakeProfile() {
               name="occupation"
               className="text-center w-full text-base md:text-xl bg-white"
               style={{ textAlignLast: "center", padding: "8px 12px" }}
+              id="user-occupation"
             >
               {occupationValues.map((element) => {
                 return (
@@ -81,8 +97,12 @@ export default function MakeProfile() {
               })}
             </select>
           </div>
-          <button className="mx-auto block my-10 p-3 text-xl text-white rounded-lg">
-            Continue
+          <button
+            className="mx-auto block my-10 p-3 text-xl text-white rounded-lg"
+            disabled={buttonText !== "Continue"}
+            onClick={handleProfileUpdate}
+          >
+            {buttonText}
           </button>
         </div>
       </div>

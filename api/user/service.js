@@ -41,21 +41,21 @@ const verifyUserLogin = async (username, password) => {
 /**
  * Fetch a user profile
  * @param {string} email The email of the user
- * @returns
+ * @returns User profile data
  */
 const fetchUserProfile = async (email) => {
   try {
-    const student = await (await connect())
+    const user = await (await connect())
       .collection("users")
       .findOne({ email }, { projection: { hash: 0, username: 0, _id: 0 } });
-    if (student === null)
+    if (user === null)
       throw {
         custom: true,
         code: 404,
         message: `User with email ${email} was not found in the database.`,
       };
     await disconnect();
-    return student;
+    return user;
   } catch (error) {
     await disconnect();
     throw error;

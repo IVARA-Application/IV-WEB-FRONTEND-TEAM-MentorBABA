@@ -1,8 +1,14 @@
 "use strict";
 
 const { Router } = require("express");
+const { authenticateUser } = require("../middlewares/authenticationMiddleware");
 const logger = require("../utilities/logger");
-const { verifyUserLogin, addNewUser, updateUserData } = require("./service");
+const {
+  verifyUserLogin,
+  addNewUser,
+  updateUserData,
+  fetchUserProfile,
+} = require("./service");
 
 const userLoginController = async (req, res) => {
   try {
@@ -70,9 +76,30 @@ const updateUserProfileController = async (req, res) => {
   }
 };
 
+const fetchUserProfileController = async (req, res) => {
+  try {
+    // Pass control to service layer
+    res.json({
+      success: true,
+      data: await fetchUserProfile(res.locals.user.email),
+    });
+  } catch (error) {
+    logger.error(error);
+    if (error.custom) {
+      return res
+        .status(error.code)
+        .json({ success: false, message: error.message });
+    }
+    res
+      .status(500)
+      .json({ success: false, message: "Something went wrong at the server." });
+  }
+};
+
 const app = Router();
 
 module.exports = () => {
+  app.get("/profile", authenticateUser, fetchUserProfileController);
   app.post("/login", userLoginController);
   app.post("/register", userRegistrationController);
   app.patch("/update", updateUserProfileController);

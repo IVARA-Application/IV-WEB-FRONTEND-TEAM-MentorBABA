@@ -30,7 +30,7 @@ const verifyUserLogin = async (username, password) => {
       };
     await disconnect();
     return {
-      token: signJwt({ email: user.email }),
+      token: signJwt({ username: user.username }),
     };
   } catch (error) {
     await disconnect();
@@ -40,19 +40,19 @@ const verifyUserLogin = async (username, password) => {
 
 /**
  * Fetch a user profile
- * @param {string} email The email of the user
+ * @param {string} username The username of the user
  * @returns User profile data
  */
-const fetchUserProfile = async (email) => {
+const fetchUserProfile = async (username) => {
   try {
     const user = await (await connect())
       .collection("users")
-      .findOne({ email }, { projection: { hash: 0, username: 0, _id: 0 } });
+      .findOne({ username }, { projection: { hash: 0, username: 0, _id: 0 } });
     if (user === null)
       throw {
         custom: true,
         code: 404,
-        message: `User with email ${email} was not found in the database.`,
+        message: `User with username ${username} was not found in the database.`,
       };
     await disconnect();
     return user;
@@ -62,6 +62,16 @@ const fetchUserProfile = async (email) => {
   }
 };
 
+/**
+ * Add a new user
+ * @param {string} name The name of the user
+ * @param {string} email The email address of the user
+ * @param {string} password The password of the user account
+ * @param {string} username The username of the user account
+ * @param {string} occupation The occupation of the user
+ * @param {string} phone The phone number of the user
+ * @returns JWT Token with username
+ */
 const addNewUser = async (
   name,
   email,
@@ -91,13 +101,28 @@ const addNewUser = async (
       profilePic:
         "https://mentorbaba.s3.ap-south-1.amazonaws.com/sampleUser.jpg",
     });
+    return signJwt({ username });
   } catch (error) {
     await disconnect();
     throw error;
   }
 };
 
-const updateUserData = async (name, username, occupation, profilePic) => {
+/**
+ * Update the user account details
+ * @param {string} name The name of the user
+ * @param {string} username The username of the user account
+ * @param {string} name The email of the user
+ * @param {string} occupation The occupation of the user
+ * @param {string} profilePic The profilePic URL of the user account
+ */
+const updateUserData = async (
+  name,
+  username,
+  email,
+  occupation,
+  profilePic
+) => {
   try {
     const exisitngUser = await (await connect())
       .collection("users")

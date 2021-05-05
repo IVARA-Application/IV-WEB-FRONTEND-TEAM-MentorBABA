@@ -1,4 +1,4 @@
-import yup from "yup";
+const yup = require("yup");
 
 const newUserRegistrationSchema = new yup.ObjectSchema({
   name: yup.string().trim().min(1).required(),
@@ -10,3 +10,5 @@ const newUserRegistrationSchema = new yup.ObjectSchema({
   password: yup.string().trim().min(6).required(),
   phone: yup.string().trim().min(10).required(),
 });
+
+module.exports = { newUserRegistrationSchema };

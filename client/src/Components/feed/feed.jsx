@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { BsChatDots } from "react-icons/bs";
+import { AiFillLike } from "react-icons/ai";
 import { BiLike } from "react-icons/bi";
 import { RiShareForwardLine } from "react-icons/ri";
 import axios from "axios";
@@ -55,6 +56,7 @@ export default function Feed() {
             },
           }
         );
+        if (response.status === 403) window.location.href = "/login";
         if (response.status != 200) throw new Error("Could not fetch data");
         setUserData(response.data.data);
         const width = window.innerHeight;
@@ -102,7 +104,7 @@ export default function Feed() {
             </div>
             <div className="my-4 mx-2 md:mx-8">
               <textarea
-                className="w-full rounded-lg md:rounded-3xl resize-none text-base md:text-xl bg-gray-100"
+                className="w-full rounded-lg md:rounded-3xl resize-none text-base md:text-xl bg-gray-100 overflow-auto"
                 rows={rowLength}
                 placeholder="Write a post"
               />
@@ -128,10 +130,38 @@ export default function Feed() {
                     <p className="mt-3 mb-2 md:mb-3 md:text-xl">
                       {element.content}
                     </p>
-                    <div className="text-2xl md:text-3xl">
-                      <BiLike className="inline-block mr-2 md:mr-4" />
-                      <BsChatDots className="inline-block mr-2 md:mr-4" />
-                      <RiShareForwardLine className="inline-block" />
+
+                    <div className="text-2xl md:text-3xl ">
+                      <AiFillLike
+                        className="hidden mr-2 md:mr-4 cursor-pointer"
+                        title="Unlike this post"
+                        id="unlike-icon"
+                        onClick={(event) => {
+                          document.getElementById("unlike-icon").style.display =
+                            "none";
+                          document.getElementById("like-icon").style.display =
+                            "inline-block";
+                        }}
+                      />
+                      <BiLike
+                        className="inline-block mr-2 md:mr-4 cursor-pointer"
+                        title="Like this post"
+                        id="like-icon"
+                        onClick={(event) => {
+                          document.getElementById("like-icon").style.display =
+                            "none";
+                          document.getElementById("unlike-icon").style.display =
+                            "inline-block";
+                        }}
+                      />
+                      <BsChatDots
+                        className="inline-block mr-2 md:mr-4 cursor-pointer"
+                        title="Comment on this post"
+                      />
+                      <RiShareForwardLine
+                        className="inline-block cursor-pointer"
+                        title="Share this post"
+                      />
                     </div>
                   </div>
                 );

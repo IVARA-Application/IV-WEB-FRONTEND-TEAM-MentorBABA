@@ -21,7 +21,7 @@ const validateSchema = (schema, location) => {
           .status(error.code)
           .json({ success: false, message: error.message });
       }
-      res.status(500).json({
+      res.status(400).json({
         success: false,
         message: error.message,
       });

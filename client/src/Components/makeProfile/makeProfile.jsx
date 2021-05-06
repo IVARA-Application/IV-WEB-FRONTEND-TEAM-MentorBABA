@@ -31,7 +31,7 @@ export default function MakeProfile() {
           },
         }
       );
-      window.location.href = "/connections";
+      window.location.href = "/feed";
     } catch (error) {
       console.error(error);
       alert("Opps");
@@ -53,7 +53,7 @@ export default function MakeProfile() {
             },
           }
         );
-        if (response.status != 200) throw new Error("Could not fetch data");
+        if (response.status !== 200) throw new Error("Could not fetch data");
         setUserData(response.data.data);
         setPageLoaded(true);
       } catch (error) {

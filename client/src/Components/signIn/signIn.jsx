@@ -39,7 +39,7 @@ function SignIn() {
       }
       if (!response.data.success) throw Error(response.data.message);
       window.localStorage.setItem("token", response.data.token);
-      window.location.href = "/connections";
+      window.location.href = "/feed";
     } catch (error) {
       console.error(error);
       alert(error.message);

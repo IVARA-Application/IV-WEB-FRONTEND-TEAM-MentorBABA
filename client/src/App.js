@@ -23,6 +23,7 @@ import LoginPage from "./pages/loginPage";
 import RegisterPage from "./pages/registerPage";
 import ConnectionPage from "./pages/connectionPage";
 import MakeProfilePage from "./pages/makeProfilePage";
+import FeedPage from "./pages/feedPage";
 
 function App() {
   return (
@@ -100,6 +101,9 @@ function App() {
           </Route>
           <Route exact path="/makeprofile">
             <MakeProfilePage />
+          </Route>
+          <Route exact path="/feed">
+            <FeedPage />
           </Route>
         </>
       </Switch>

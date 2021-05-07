@@ -35,7 +35,7 @@ export default function Feed() {
     },
   ]);
 
-  function loadContent(event) {
+  async function loadContent(event) {
     event.preventDefault();
     console.log(event.target.scrollTop, event.target.scrollHeight);
     if (event.target.scrollTop >= (event.target.scrollHeight - 600) / 2) {

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function BabaPsy() {
   return (
-    <div className="py-4 lg:py-0">
+    <div className="py-4 lg:py-0" id="baba-psy">
       <div className="w-4/5 m-auto">
         <div>
           <h1 className="text-2xl md:text-3xl xl:text-5xl text-center py-2 lg:py-8">

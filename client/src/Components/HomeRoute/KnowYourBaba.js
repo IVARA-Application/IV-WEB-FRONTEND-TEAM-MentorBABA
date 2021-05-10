@@ -8,7 +8,7 @@ import Mentor6 from "../../img/Mentor6.jpg";
 
 function KnowYourBaba() {
   return (
-    <div className="kyb-container lg:mt-16">
+    <div className="kyb-container lg:mt-16" id="know-baba">
       <div>
         <h1 className="text-center text-3xl  lg:text-5xl my-4 lg:mb-16">
           <span>Know Your</span> Baba!

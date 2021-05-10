@@ -42,7 +42,7 @@ function ContactUS() {
   }
 
   return (
-    <div className="contactUs-container">
+    <div className="contactUs-container" id="contact-us">
       <div className="flex items-center justify-center flex-col">
         <h2 className="text-xl lg:text-3xl mt-2 lg:mt-8">
           Contact<span className="font-semibold text-white"> Baba !</span>

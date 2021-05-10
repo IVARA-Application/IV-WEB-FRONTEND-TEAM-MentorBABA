@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { BiArrowBack } from "react-icons/bi";
 import fb from "../../img/facebook.png";
 import google from "../../img/google.png";
 import linkedin from "../../img/linkedin.png";
@@ -95,6 +96,15 @@ function SignIn() {
         >
           {message}
         </button>
+        <p
+          className="my-1 lg:mt-4 text-base md:text-xl cursor-pointer"
+          onClick={(event) => {
+            event.preventDefault();
+            window.location.href = "/";
+          }}
+        >
+          <BiArrowBack className="inline-block" /> Back to Home
+        </p>
       </div>
       <div className="right-signin w-full md:w-2/5 flex flex-col items-center md:justify-center">
         <h1 className="text-3xl md:text-5xl font-bold pt-2 md:pt-0">

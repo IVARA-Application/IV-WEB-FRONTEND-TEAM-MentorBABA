@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { BiArrowBack } from "react-icons/bi";
 import fb from "../../img/facebook.png";
 import google from "../../img/google.png";
 import linkedin from "../../img/linkedin.png";
@@ -128,6 +129,15 @@ export default function SignUp() {
           >
             {message}
           </button>
+          <p
+            className="my-1 lg:mt-4 text-base md:text-xl cursor-pointer"
+            onClick={(event) => {
+              event.preventDefault();
+              window.location.href = "/";
+            }}
+          >
+            <BiArrowBack className="inline-block" /> Back to Home
+          </p>
         </div>
         <dialog className="z-10 mt-60 mx-auto border border-black">
           <div className="p-10 text-center">

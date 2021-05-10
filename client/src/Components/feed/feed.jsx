@@ -10,6 +10,7 @@ import LinkPanel from "./linkPanel";
 
 export default function Feed() {
   const [pageLoaded, setPageLoaded] = useState(false);
+  const [submitButtonText, setSubmitButtonText] = useState("Submit");
   const [linksState, setLinksState] = useState(false);
   const [rowLength, setRowLength] = useState(4);
   const [containerScrollLength, setContainerScrollLength] = useState(0);
@@ -40,6 +41,34 @@ export default function Feed() {
       } catch (error) {
         console.error(error);
       }
+    }
+  }
+
+  async function addNewFeed() {
+    try {
+      const content = document.getElementById("newfeed").value;
+      if (content.length === 0) throw new Error("Content is empty!");
+      const response = await axios.post(
+        `https://1qfcnu37he.execute-api.ap-south-1.amazonaws.com/latest/feed/add`,
+        {
+          content,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+          },
+          validateStatus: function (status) {
+            return status >= 200 && status < 404;
+          },
+        }
+      );
+      if (response.status === 403) window.location.href = "/login";
+      setSubmitButtonText("Posted!");
+      window.location.reload();
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+      setSubmitButtonText("Submit");
     }
   }
 
@@ -113,7 +142,7 @@ export default function Feed() {
         <div className="p-4 grid grid-cols-12 items-center min-h-screen w-full">
           <div
             className="bg-white col-span-12 lg:col-span-9 rounded-md my-2 md:my-0 md:mx-2"
-            style={{ minHeight: "96vh" }}
+            style={{ minHeight: "94vh" }}
           >
             <ProfileBar profilePic={userData.profilePic} />
             <div
@@ -140,12 +169,24 @@ export default function Feed() {
                 className="w-full rounded-lg md:rounded-3xl resize-none text-base md:text-xl bg-gray-100 overflow-auto"
                 rows={rowLength}
                 placeholder="Write a post"
+                id="newfeed"
               />
+              <button
+                className="block mx-auto bg-indigo-600 py-1 md:py-2 px-3 md:px-4 text-sm md:text-xl text-white rounded-xl"
+                disabled={submitButtonText !== "Submit"}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setSubmitButtonText("Posting");
+                  addNewFeed();
+                }}
+              >
+                {submitButtonText}
+              </button>
             </div>
             <div
               id="feed-container"
               className="overflow-y-auto overflow-x-hidden mx-2 md:mx-8"
-              style={{ height: "65vh" }}
+              style={{ height: "58vh" }}
               onScroll={(event) => {
                 if (
                   event.target.scrollTop >=
@@ -215,7 +256,7 @@ export default function Feed() {
           </div>
           <div
             className="bg-white hidden lg:block lg:col-span-3 rounded-md my-2 md:my-0 md:mx-2"
-            style={{ minHeight: "96vh" }}
+            style={{ minHeight: "94vh" }}
           >
             <LinkPanel />
           </div>

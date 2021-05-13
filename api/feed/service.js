@@ -1,6 +1,7 @@
 "use strict";
 
 const { connect, disconnect } = require("../utilities/database");
+const { nanoid } = require("nanoid");
 
 /**
  * Fetch feed
@@ -34,6 +35,11 @@ const fetchFeed = async (set) => {
   }
 };
 
+/**
+ * Add a new feed
+ * @param {string} content The content to be added
+ * @param {string} username The username of the user adding the content
+ */
 const addFeed = async (content, username) => {
   const user = await (await connect())
     .collection("users")
@@ -47,6 +53,7 @@ const addFeed = async (content, username) => {
     };
   const newFeed = {
     content,
+    feedId: nanoid(10),
     author: user.name.split(" ")[0],
     profilePic: user.profilePic,
     likes: 0,

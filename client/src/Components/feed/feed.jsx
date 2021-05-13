@@ -115,6 +115,7 @@ export default function Feed() {
         );
         if (response.status === 403) window.location.href = "/login";
         if (response.status != 200) throw new Error("Could not fetch data");
+        console.log(response.data.data);
         setFeeds((feeds) => [...feeds, ...response.data.data]);
       } catch (error) {
         console.log(error);
@@ -200,7 +201,7 @@ export default function Feed() {
             >
               {feeds.map((element, index) => {
                 return (
-                  <div key={index} className="mb-7 md:mb-10">
+                  <div key={element.feedId} className="mb-7 md:mb-10 px-1">
                     <div className="text-lg md:text-2xl">
                       <img
                         src={element.profilePic}
@@ -212,10 +213,17 @@ export default function Feed() {
                     <p className="mt-3 mb-2 md:mb-3 md:text-xl">
                       {element.content}
                     </p>
-
+                    <p>
+                      {element.likes}{" "}
+                      {element.likes === 1 ? "person likes" : "persons like"}{" "}
+                      this
+                    </p>
                     <div className="text-2xl md:text-3xl ">
                       <AiFillLike
-                        className="hidden mr-2 md:mr-4 cursor-pointer"
+                        className={[
+                          "mr-2 md:mr-4 cursor-pointer",
+                          element.liked ? "inline-block" : "hidden",
+                        ].join(" ")}
                         title="Unlike this post"
                         id={`unlike-icon${index}`}
                         onClick={(event) => {
@@ -228,7 +236,10 @@ export default function Feed() {
                         }}
                       />
                       <BiLike
-                        className="inline-block mr-2 md:mr-4 cursor-pointer"
+                        className={[
+                          "mr-2 md:mr-4 cursor-pointer",
+                          !element.liked ? "inline-block" : "hidden",
+                        ].join(" ")}
                         title="Like this post"
                         id={`like-icon${index}`}
                         onClick={(event) => {

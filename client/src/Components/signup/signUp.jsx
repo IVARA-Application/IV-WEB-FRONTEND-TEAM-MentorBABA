@@ -71,16 +71,23 @@ export default function SignUp() {
             Create Account
           </h1>
           <div className="signin-options flex space-x-4 lg:space-x-8">
-            <a href="https://vkrx5omg34.execute-api.ap-south-1.amazonaws.com/latest/login/linkedin">
-              <img className="object-contain" src={linkedin} alt="Linkedin" />
-            </a>
-            <a href="https://vkrx5omg34.execute-api.ap-south-1.amazonaws.com/latest/login/google">
-              <img className="object-contain" src={google} alt="Google" />
-            </a>
+            <img
+              className="object-contain opacity-25"
+              src={google}
+              alt="Google"
+              title="Coming soon!"
+            />
+            <img
+              className="object-contain opacity-25"
+              src={linkedin}
+              alt="LinkedIn"
+              title="Coming soon!"
+            />
             <img
               className="object-contain opacity-25"
               src={fb}
               alt="Facebook"
+              title="Coming soon!"
             />
           </div>
           <p className="py-10 text-xl">or use your email for registration</p>

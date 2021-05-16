@@ -75,6 +75,25 @@ export default function Feed() {
     }
   }
 
+  async function toggleLikeStatus(feedId, operation) {
+    try {
+      const response = await axios.post(
+        `https://1qfcnu37he.execute-api.ap-south-1.amazonaws.com/latest/feed/${operation}?feedId=${feedId}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+          },
+          validateStatus: function (status) {
+            return status >= 200 && status < 404;
+          },
+        }
+      );
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
   async function toggleLikeState(feedId, operation) {
     const index = feeds.findIndex((element) => element.feedId === feedId);
     if (operation === "like") {
@@ -85,6 +104,7 @@ export default function Feed() {
       feeds[index].likes -= 1;
     }
     setFeeds((feeds) => [...feeds]);
+    toggleLikeStatus(feedId, operation);
   }
 
   function handleDialogCloseStateChange() {
@@ -280,7 +300,6 @@ export default function Feed() {
                           document.getElementById(
                             `unlike-icon${index}`
                           ).style.display = "inline-block";
-                          console.log(userData);
                           element.usersLiked.push({
                             name: userData.name,
                             profilePic: userData.profilePic,

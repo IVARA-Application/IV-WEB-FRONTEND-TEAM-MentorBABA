@@ -126,7 +126,7 @@ export default function Feed() {
           }
         );
         if (response.status === 403) window.location.href = "/login";
-        if (response.status != 200) throw new Error("Could not fetch data");
+        if (response.status !== 200) throw new Error("Could not fetch data");
         setUserData(response.data.data);
         setContainerScrollLength(
           document.getElementById("feed-container").scrollHeight
@@ -153,7 +153,7 @@ export default function Feed() {
           }
         );
         if (response.status === 403) window.location.href = "/login";
-        if (response.status != 200) throw new Error("Could not fetch data");
+        if (response.status !== 200) throw new Error("Could not fetch data");
         setFeeds((feeds) => [...feeds, ...response.data.data]);
       } catch (error) {
         console.log(error);

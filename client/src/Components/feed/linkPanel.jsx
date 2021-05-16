@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BiBell, BiMessageRoundedDots } from "react-icons/bi";
 import { GrLogout } from "react-icons/gr";
 

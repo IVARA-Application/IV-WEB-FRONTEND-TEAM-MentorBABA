@@ -75,6 +75,11 @@ const addFeed = async (content, username) => {
   }
 };
 
+/**
+ * Like a feed
+ * @param {string} feedId The ID of the feed to be liked
+ * @param {string} username The username of the user logged in
+ */
 const likeFeed = async (feedId, username) => {
   try {
     const feed = await (await connect())
@@ -86,8 +91,21 @@ const likeFeed = async (feedId, username) => {
         code: 404,
         message: `Feed with ID ${feedId} was not found in the database.`,
       };
+    const user = await (await connect())
+      .collection("users")
+      .findOne({ username });
+    if (!user)
+      throw {
+        custom: true,
+        code: 404,
+        message: `User with username ${username} was not found in the database.`,
+      };
     const usersLikedSet = new Set(feed.usersLiked);
-    usersLikedSet.add(username);
+    usersLikedSet.add({
+      name: user.name.split(" ")[0],
+      username,
+      profilePic: user.profilePic,
+    });
     await (await connect())
       .collection("feeds")
       .updateOne(
@@ -100,4 +118,42 @@ const likeFeed = async (feedId, username) => {
   }
 };
 
-module.exports = { fetchFeed, addFeed, likeFeed };
+/**
+ * Unlike a feed
+ * @param {string} feedId The ID of the feed to be liked
+ * @param {string} username The username of the user logged in
+ */
+const unlikeFeed = async (feedId, username) => {
+  try {
+    const feed = await (await connect())
+      .collection("feeds")
+      .findOne({ feedId });
+    if (!feed)
+      throw {
+        custom: true,
+        code: 404,
+        message: `Feed with ID ${feedId} was not found in the database.`,
+      };
+    const userAtIndex = feed.usersLiked.findIndex(
+      (element) => element.username === username
+    );
+    if (userAtIndex <= -1)
+      throw {
+        custom: true,
+        code: 400,
+        message: `Feed with ID ${feedId} was not liked by User ${username}.`,
+      };
+    feed.usersLiked.splice(userAtIndex, 1);
+    await (await connect())
+      .collection("feeds")
+      .updateOne(
+        { feedId },
+        { $set: { usersLiked: feed.usersLiked, likes: feed.usersLiked.length } }
+      );
+  } catch (error) {
+    await disconnect();
+    throw error;
+  }
+};
+
+module.exports = { fetchFeed, addFeed, likeFeed, unlikeFeed };

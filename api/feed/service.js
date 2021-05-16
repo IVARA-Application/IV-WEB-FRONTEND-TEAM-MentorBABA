@@ -30,8 +30,9 @@ const fetchFeed = async (username, set) => {
     await disconnect();
     for (let i = 0; i < feeds.length; i++) {
       const element = feeds[i];
-      const usersLikedSet = new Set(element.usersLiked);
-      feeds[i].liked = usersLikedSet.has(username);
+      element.liked =
+        element.usersLiked.findIndex((user) => user.username === username) !==
+        -1;
     }
     return feeds;
   } catch (error) {
@@ -120,7 +121,7 @@ const likeFeed = async (feedId, username) => {
 
 /**
  * Unlike a feed
- * @param {string} feedId The ID of the feed to be liked
+ * @param {string} feedId The ID of the feed to be unliked
  * @param {string} username The username of the user logged in
  */
 const unlikeFeed = async (feedId, username) => {

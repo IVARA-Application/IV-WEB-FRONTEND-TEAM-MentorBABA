@@ -7,9 +7,12 @@ import { RiShareForwardLine } from "react-icons/ri";
 import axios from "axios";
 import ProfileBar from "./profileBar";
 import LinkPanel from "./linkPanel";
+import LikeList from "./likeList";
 
 export default function Feed() {
   const [pageLoaded, setPageLoaded] = useState(false);
+  const [likeListOpen, setLikeListOpen] = useState(false);
+  const [likeListData, setLikeListData] = useState([]);
   const [submitButtonText, setSubmitButtonText] = useState("Submit");
   const [linksState, setLinksState] = useState(false);
   const [rowLength, setRowLength] = useState(4);
@@ -72,6 +75,22 @@ export default function Feed() {
     }
   }
 
+  async function toggleLikeState(feedId, operation) {
+    const index = feeds.findIndex((element) => element.feedId === feedId);
+    if (operation === "like") {
+      feeds[index].liked = true;
+      feeds[index].likes += 1;
+    } else {
+      feeds[index].liked = false;
+      feeds[index].likes -= 1;
+    }
+    setFeeds((feeds) => [...feeds]);
+  }
+
+  function handleDialogCloseStateChange() {
+    setLikeListOpen(false);
+  }
+
   useEffect(() => {
     async function fetchUserProfile() {
       try {
@@ -115,7 +134,6 @@ export default function Feed() {
         );
         if (response.status === 403) window.location.href = "/login";
         if (response.status != 200) throw new Error("Could not fetch data");
-        console.log(response.data.data);
         setFeeds((feeds) => [...feeds, ...response.data.data]);
       } catch (error) {
         console.log(error);
@@ -140,6 +158,11 @@ export default function Feed() {
         </p>
       </div>
       <div className={pageLoaded ? "bg-indigo-600 block" : "hidden"}>
+        <LikeList
+          open={likeListOpen}
+          data={likeListData}
+          onOpenChange={handleDialogCloseStateChange}
+        />
         <div className="p-4 grid grid-cols-12 items-center min-h-screen w-full">
           <div
             className="bg-white col-span-12 lg:col-span-9 rounded-md my-2 md:my-0 md:mx-2"
@@ -210,10 +233,16 @@ export default function Feed() {
                       />{" "}
                       {element.author}
                     </div>
-                    <p className="mt-3 mb-2 md:mb-3 md:text-xl">
+                    <p className="mt-3 mb-2 md:mb-3 md:text-xl whitespace-pre-line">
                       {element.content}
                     </p>
-                    <p>
+                    <p
+                      className="cursor-pointer"
+                      onClick={() => {
+                        setLikeListData(element.usersLiked);
+                        setLikeListOpen(true);
+                      }}
+                    >
                       {element.likes}{" "}
                       {element.likes === 1 ? "person likes" : "persons like"}{" "}
                       this
@@ -226,13 +255,15 @@ export default function Feed() {
                         ].join(" ")}
                         title="Unlike this post"
                         id={`unlike-icon${index}`}
-                        onClick={(event) => {
+                        onClick={() => {
                           document.getElementById(
                             `unlike-icon${index}`
                           ).style.display = "none";
                           document.getElementById(
                             `like-icon${index}`
                           ).style.display = "inline-block";
+                          element.usersLiked.pop();
+                          toggleLikeState(element.feedId, "unlike");
                         }}
                       />
                       <BiLike
@@ -242,13 +273,19 @@ export default function Feed() {
                         ].join(" ")}
                         title="Like this post"
                         id={`like-icon${index}`}
-                        onClick={(event) => {
+                        onClick={() => {
                           document.getElementById(
                             `like-icon${index}`
                           ).style.display = "none";
                           document.getElementById(
                             `unlike-icon${index}`
                           ).style.display = "inline-block";
+                          console.log(userData);
+                          element.usersLiked.push({
+                            name: userData.name,
+                            profilePic: userData.profilePic,
+                          });
+                          toggleLikeState(element.feedId, "like");
                         }}
                       />
                       <BsChatDots

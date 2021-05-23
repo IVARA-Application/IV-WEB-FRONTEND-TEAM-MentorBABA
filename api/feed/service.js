@@ -5,7 +5,7 @@ const { nanoid } = require("nanoid");
 
 /**
  * Fetch feed
- * @param {number} set The set number o be fetched
+ * @param {number} set The set number to be fetched
  * @returns The array of feeds
  */
 const fetchFeed = async (username, set) => {

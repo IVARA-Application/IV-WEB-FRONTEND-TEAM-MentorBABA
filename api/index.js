@@ -7,6 +7,7 @@ const cors = require("cors");
 const logger = require("./utilities/logger");
 const userController = require("./user/controller");
 const feedController = require("./feed/controller");
+const notificationController = require("./notification/controller");
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/user", userController());
 app.use("/feed", feedController());
+app.use("/noification", notificationController());
 // Central Error Handler
 app.use(function errorHandler(err, req, res, next) {
   logger.error(err);

@@ -2,6 +2,7 @@
 
 const { connect, disconnect } = require("../utilities/database");
 const { nanoid } = require("nanoid");
+const { addNotification } = require("../notification/service");
 
 /**
  * Fetch feed
@@ -69,6 +70,10 @@ const addFeed = async (content, username) => {
       usersCommented: [],
     };
     await (await connect()).collection("feeds").insertOne({ ...newFeed });
+    await addNotification(
+      `${user.name.split(" ")[0]} has just uploaded a new post!`,
+      user.profilePic
+    );
     await disconnect();
   } catch (error) {
     await disconnect();
@@ -113,6 +118,10 @@ const likeFeed = async (feedId, username) => {
         { feedId },
         { $set: { usersLiked: [...usersLikedSet], likes: usersLikedSet.size } }
       );
+    await addNotification(
+      `${user.name.split(" ")[0]} just liked ${feed.author}'s post.`,
+      user.profilePic
+    );
   } catch (error) {
     await disconnect();
     throw error;

@@ -34,4 +34,21 @@ const fetchNotification = async (set) => {
   }
 };
 
-module.exports = { fetchNotification };
+/**
+ * Helper method to add a new notification to the collection
+ * @param {string} message The message of the new notification
+ * @param {string} profilePic The profile of the iser responsible for the notification
+ */
+const addNotification = async (message, profilePic) => {
+  try {
+    await (await connect())
+      .collection("notifications")
+      .insertOne({ message, profilePic });
+    await disconnect();
+  } catch (error) {
+    await disconnect();
+    throw error;
+  }
+};
+
+module.exports = { fetchNotification, addNotification };
